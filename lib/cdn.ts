@@ -27,8 +27,8 @@ export function getAssetUrl(path: string): string {
   if (path.includes('tslogo-final1.png')) {
     return path;
   }
-  // Use CDN for static assets in production, fallback to local in dev
-  if (process.env.NODE_ENV === 'development') {
+  // Use CDN for static assets only in production, fallback to local in development or other envs
+  if (process.env.NODE_ENV !== 'production') {
     return path;
   }
   return shouldUseCdn(path) ? getCdnUrl(path) : path;
