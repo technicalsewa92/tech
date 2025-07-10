@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.technicalsewa.com/
+
+# Sitemaps
+Sitemap: https://www.technicalsewa.com/sitemap.xml

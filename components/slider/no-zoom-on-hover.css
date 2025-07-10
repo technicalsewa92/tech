@@ -1,0 +1,10 @@
+/* Ensures no zoom/scale effect on service card images */
+.no-zoom-on-hover,
+.no-zoom-on-hover:hover,
+.no-zoom-on-hover:focus,
+.service-card-compact img,
+.service-card-compact img:hover,
+.service-card-compact img:focus {
+  transform: none !important;
+  transition: none !important;
+}

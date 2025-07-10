@@ -1,0 +1,531 @@
+/* Enhanced Service Pages CSS */
+
+/* ============================ */
+/* ENHANCED SERVICE PAGE STYLES */
+/* ============================ */
+
+/* Smooth animations and transitions */
+.service-enhanced {
+  scroll-behavior: smooth;
+}
+
+/* Hero section enhancements */
+.service-hero-enhanced {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #7c3aed 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-hero-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Enhanced card styles */
+.service-card-enhanced {
+  @apply bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden transition-all duration-300;
+}
+
+.service-card-enhanced:hover {
+  @apply shadow-lg transform -translate-y-1;
+}
+
+/* Tab navigation enhancements */
+.service-tab-enhanced {
+  @apply flex items-center gap-2 px-6 py-4 font-medium transition-all duration-200 relative;
+}
+
+.service-tab-enhanced.active {
+  @apply text-primary bg-primary/10;
+}
+
+.service-tab-enhanced.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2591b2, #2176ae);
+}
+
+.service-tab-enhanced:not(.active):hover {
+  @apply text-primary bg-primary/5;
+}
+
+/* Enhanced button styles */
+.service-btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full transition-all duration-200 hover:bg-blue-700 hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+.service-btn-secondary {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border-2 border-blue-600 transition-all duration-200 hover:bg-blue-50 hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+.service-btn-success {
+  @apply inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white font-semibold rounded-full transition-all duration-200 hover:bg-green-700 hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+/* Enhanced contact cards */
+.service-contact-card {
+  @apply flex items-center gap-3 p-4 rounded-lg transition-all duration-200 group cursor-pointer;
+}
+
+.service-contact-card:hover {
+  @apply shadow-md transform -translate-y-0.5;
+}
+
+.service-contact-icon {
+  @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200;
+}
+
+.service-contact-card:hover .service-contact-icon {
+  @apply scale-110;
+}
+
+/* Enhanced stats grid */
+.service-stats-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.service-stat-item {
+  @apply text-center p-4 rounded-lg bg-gradient-to-br from-gray-50 to-blue-50 transition-all duration-200 hover:shadow-md;
+}
+
+.service-stat-value {
+  @apply text-2xl font-bold mb-1 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+.service-stat-label {
+  @apply text-sm text-gray-600 font-medium;
+}
+
+/* Enhanced category links */
+.service-category-link {
+  @apply group flex items-center justify-between p-4 bg-gray-50 hover:bg-blue-50 rounded-lg transition-all duration-200 hover:shadow-md;
+}
+
+.service-category-link:hover {
+  @apply transform -translate-y-0.5;
+}
+
+.service-category-arrow {
+  @apply w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-all duration-200;
+}
+
+.service-category-link:hover .service-category-arrow {
+  @apply translate-x-1;
+}
+
+/* Enhanced feature badges */
+.service-feature-badge {
+  @apply flex items-center gap-2 text-blue-200 transition-all duration-200 hover:text-white;
+}
+
+.service-feature-icon {
+  @apply w-5 h-5 text-green-400 transition-all duration-200;
+}
+
+.service-feature-badge:hover .service-feature-icon {
+  @apply scale-110;
+}
+
+/* Enhanced rating display */
+.service-rating-badge {
+  @apply flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 transition-all duration-200 hover:bg-white/20;
+}
+
+.service-rating-star {
+  @apply text-yellow-400 w-5 h-5 transition-all duration-200;
+}
+
+.service-rating-badge:hover .service-rating-star {
+  @apply scale-110;
+}
+
+/* Enhanced image containers */
+.service-image-container {
+  @apply relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-300;
+}
+
+.service-image-container:hover {
+  @apply shadow-3xl transform scale-105;
+}
+
+.service-image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.service-image-container:hover .service-image-overlay {
+  @apply opacity-100;
+}
+
+/* Enhanced loading states */
+.service-skeleton {
+  @apply animate-pulse bg-gray-200 rounded;
+}
+
+.service-skeleton-text {
+  @apply h-4 bg-gray-200 rounded animate-pulse;
+}
+
+.service-skeleton-card {
+  @apply h-12 bg-gray-200 rounded-lg animate-pulse;
+}
+
+/* Enhanced breadcrumb */
+.service-breadcrumb {
+  @apply flex items-center space-x-2 text-blue-200 text-sm;
+}
+
+.service-breadcrumb-item {
+  @apply hover:text-white transition-colors cursor-pointer;
+}
+
+.service-breadcrumb-separator {
+  @apply w-3 h-3 text-blue-300;
+}
+
+/* Enhanced prose styles for content */
+.service-prose {
+  @apply prose prose-blue max-w-none text-gray-600 leading-relaxed;
+}
+
+.service-prose h1,
+.service-prose h2,
+.service-prose h3,
+.service-prose h4,
+.service-prose h5,
+.service-prose h6 {
+  @apply text-gray-900 font-bold;
+}
+
+.service-prose h1 {
+  @apply text-3xl mb-6;
+}
+
+.service-prose h2 {
+  @apply text-2xl mb-4;
+}
+
+.service-prose h3 {
+  @apply text-xl mb-3;
+}
+
+.service-prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.service-prose ul,
+.service-prose ol {
+  @apply mb-4 pl-6;
+}
+
+.service-prose li {
+  @apply mb-2;
+}
+
+.service-prose a {
+  @apply text-blue-600 hover:text-blue-800 transition-colors duration-200 underline;
+}
+
+.service-prose blockquote {
+  @apply border-l-4 border-blue-500 pl-4 italic my-4 text-gray-700 bg-blue-50 py-2 rounded-r;
+}
+
+.service-prose code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+}
+
+.service-prose pre {
+  @apply bg-gray-100 p-4 rounded overflow-x-auto mb-4;
+}
+
+.service-prose img {
+  @apply max-w-full h-auto rounded-lg shadow-md my-4;
+}
+
+/* Enhanced list styles */
+.service-list-enhanced {
+  @apply space-y-2;
+}
+
+.service-list-item {
+  @apply flex items-center gap-2 transition-all duration-200 hover:text-blue-600;
+}
+
+.service-list-icon {
+  @apply w-4 h-4 flex-shrink-0 transition-all duration-200;
+}
+
+.service-list-item:hover .service-list-icon {
+  @apply scale-110;
+}
+
+/* Enhanced gradient backgrounds */
+.service-gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+}
+
+.service-gradient-secondary {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+}
+
+.service-gradient-accent {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
+/* Enhanced shadow utilities */
+.service-shadow-soft {
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.service-shadow-medium {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.service-shadow-large {
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.service-shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Enhanced focus states */
+.service-focus-enhanced:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+.service-focus-enhanced:focus-visible {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+  .service-hero-enhanced {
+    @apply py-12;
+  }
+
+  .service-card-enhanced {
+    @apply mx-4;
+  }
+
+  .service-stats-grid {
+    @apply grid-cols-2 gap-3;
+  }
+
+  .service-tab-enhanced {
+    @apply px-4 py-3 text-sm;
+  }
+
+  .service-btn-primary,
+  .service-btn-secondary,
+  .service-btn-success {
+    @apply px-4 py-2 text-sm;
+  }
+}
+
+@media (max-width: 640px) {
+  .service-stats-grid {
+    @apply grid-cols-1 gap-3;
+  }
+
+  .service-contact-card {
+    @apply p-3;
+  }
+
+  .service-contact-icon {
+    @apply w-8 h-8;
+  }
+}
+
+/* Enhanced print styles */
+@media print {
+  .service-hero-enhanced,
+  .service-contact-card,
+  .service-btn-primary,
+  .service-btn-secondary,
+  .service-btn-success {
+    display: none !important;
+  }
+
+  .service-card-enhanced {
+    @apply shadow-none border border-gray-300;
+  }
+}
+
+/* Enhanced dark mode support */
+@media (prefers-color-scheme: dark) {
+  .service-card-enhanced {
+    @apply bg-gray-800 border-gray-700;
+  }
+
+  .service-tab-enhanced {
+    @apply text-gray-300;
+  }
+
+  .service-tab-enhanced.active {
+    @apply text-blue-400 bg-gray-700;
+  }
+
+  .service-prose {
+    @apply text-gray-300;
+  }
+
+  .service-prose h1,
+  .service-prose h2,
+  .service-prose h3,
+  .service-prose h4,
+  .service-prose h5,
+  .service-prose h6 {
+    @apply text-white;
+  }
+}
+
+/* Enhanced accessibility */
+.service-enhanced [role='button']:focus,
+.service-enhanced button:focus,
+.service-enhanced a:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+}
+
+.service-enhanced [aria-expanded='true'] .service-category-arrow {
+  @apply rotate-90;
+}
+
+/* Enhanced performance optimizations */
+.service-enhanced {
+  contain: layout style paint;
+}
+
+.service-image-container img {
+  will-change: transform;
+}
+
+.service-card-enhanced {
+  will-change: transform, box-shadow;
+}
+
+/* Enhanced utility classes */
+.service-text-gradient {
+  @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+}
+
+.service-border-gradient {
+  border-image: linear-gradient(90deg, #3b82f6, #8b5cf6) 1;
+}
+
+.service-backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Enhanced animation keyframes */
+@keyframes service-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes service-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes service-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.service-animate-fade-in {
+  animation: service-fade-in 0.6s ease-out;
+}
+
+.service-animate-slide-in {
+  animation: service-slide-in 0.6s ease-out;
+}
+
+.service-animate-scale-in {
+  animation: service-scale-in 0.6s ease-out;
+}
+
+/* Enhanced stagger animations */
+.service-stagger-children > * {
+  animation: service-fade-in 0.6s ease-out;
+}
+
+.service-stagger-children > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.service-stagger-children > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.service-stagger-children > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.service-stagger-children > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.service-stagger-children > *:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Enhanced scroll animations */
+.service-scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.service-scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced loading spinner */
+.service-spinner {
+  @apply animate-spin rounded-full border-b-2 border-blue-600;
+}
+
+.service-spinner-large {
+  @apply w-32 h-32;
+}
+
+.service-spinner-medium {
+  @apply w-16 h-16;
+}
+
+.service-spinner-small {
+  @apply w-8 h-8;
+}

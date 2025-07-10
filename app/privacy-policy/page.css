@@ -1,0 +1,18 @@
+    h1 span {
+        font-weight: bold !important;
+        color: black !important;
+        font-size: 25pt !important;
+    }
+
+    h1.MsoNormal {
+        margin-bottom: 10px !important;
+    }
+
+    p.MsoNormal {
+        line-height: 2 !important;
+    }
+
+    p.MsoNormal span {
+        color: black !important;
+        font-size: 11pt !important;
+    }

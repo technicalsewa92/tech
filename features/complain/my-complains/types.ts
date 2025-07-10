@@ -1,0 +1,35 @@
+export interface Complain {
+  id: string;
+  prim: string;
+  online_payment: any;
+  service_desc: string;
+  brand_id: string;
+  product_id: string;
+  Call_status_val: string;
+  call_uid: string;
+  call_dt: string;
+  call_tm: string;
+  cust_first_name: string;
+  cust_last_name: string;
+  cust_address: string;
+  cust_phone_home: string;
+  cust_phone_mobile: string;
+  brand_name: string;
+  product_name: string;
+  model_number: string;
+  sc_name: string;
+  symptom_code: string;
+  defect_code: string;
+  repair_code: string;
+  call_service_desc: string;
+  call_engineer_remark: string;
+  call_detail_wrk_done: string;
+  call_reason_pending: string;
+  call_status: string;
+  pending_dt: string;
+  pending_tm: string;
+  closure_dt: string;
+  closure_tm: string;
+  long: string;
+  lat: string;
+}

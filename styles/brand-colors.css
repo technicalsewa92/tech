@@ -1,0 +1,148 @@
+/* Technical Sewa Brand Color Optimization */
+:root {
+  --brand-primary: #2591b2;
+  --brand-primary-dark: #1d7a95;
+  --brand-primary-light: #4db3d1;
+  --brand-primary-lighter: #7bc5db;
+  --brand-primary-lightest: #b8dde8;
+  --brand-gradient: linear-gradient(
+    90deg,
+    hsla(194, 66%, 42%, 1) 0%,
+    hsla(176, 73%, 88%, 1) 100%
+  );
+}
+
+/* Use the specific gradient provided */
+.bg-hero-gradient {
+  background: var(--brand-gradient);
+}
+
+.bg-feature-gradient {
+  background: var(--brand-gradient);
+}
+
+.bg-stats-gradient {
+  background: var(--brand-gradient);
+}
+
+.bg-brand-gradient {
+  background: var(--brand-gradient);
+}
+
+/* Brand color utilities */
+.text-brand-primary {
+  color: var(--brand-primary);
+}
+
+.bg-brand-primary {
+  background-color: var(--brand-primary);
+}
+
+.border-brand-primary {
+  border-color: var(--brand-primary);
+}
+
+.hover\:bg-brand-primary:hover {
+  background-color: var(--brand-primary);
+}
+
+.hover\:text-brand-primary:hover {
+  color: var(--brand-primary);
+}
+
+/* Custom scrollbar with brand colors */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary),
+    var(--brand-primary-dark)
+  );
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary-dark),
+    var(--brand-primary)
+  );
+}
+
+/* Pulse glow effect with brand color */
+@keyframes pulse-glow-brand {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(37, 145, 178, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(37, 145, 178, 0.6);
+  }
+}
+
+.pulse-glow-brand {
+  animation: pulse-glow-brand 2s ease-in-out infinite;
+}
+
+/* Button styles with brand colors */
+.btn-brand-primary {
+  background-color: var(--brand-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-brand-primary:hover {
+  background-color: var(--brand-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 145, 178, 0.3);
+}
+
+.btn-brand-outline {
+  background-color: transparent;
+  color: var(--brand-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--brand-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-brand-outline:hover {
+  background-color: var(--brand-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Card hover effects with brand colors */
+.card-brand-hover {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.card-brand-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(37, 145, 178, 0.15);
+  border-color: var(--brand-primary-light);
+}
+
+/* Loading animation with brand colors */
+@keyframes spin-brand {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-brand {
+  border: 3px solid var(--brand-primary-lightest);
+  border-top: 3px solid var(--brand-primary);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin-brand 1s linear infinite;
+}

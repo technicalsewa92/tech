@@ -1,0 +1,21 @@
+.service-card-compact {
+  @apply bg-white border border-gray-100 rounded-xl shadow p-4 flex flex-col items-center justify-center transition-none min-h-[140px] md:min-h-[180px] w-full;
+}
+
+@media (min-width: 768px) {
+  .service-card-compact {
+    @apply p-6 min-h-[180px] max-w-xs;
+  }
+}
+
+.service-card-compact .service-card-icon {
+  @apply w-12 h-12 md:w-16 md:h-16 mb-3 rounded-full bg-primary/10 flex items-center justify-center;
+}
+
+.service-card-compact .service-card-title {
+  @apply text-base md:text-lg font-semibold text-gray-900 text-center leading-tight;
+}
+
+.service-card-compact .service-card-desc {
+  @apply text-xs md:text-sm text-gray-600 text-center mt-1;
+}

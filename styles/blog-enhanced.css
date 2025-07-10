@@ -1,0 +1,270 @@
+/* Enhanced Blog Styling */
+
+/* Typography improvements */
+.prose h1 {
+  @apply text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-8;
+}
+
+.prose h2 {
+  @apply text-2xl md:text-3xl font-bold text-gray-800 mb-4 mt-8 pt-2 border-b border-gray-200 pb-2;
+}
+
+.prose h3 {
+  @apply text-xl md:text-2xl font-semibold text-gray-800 mb-4 mt-6;
+}
+
+.prose h4 {
+  @apply text-lg md:text-xl font-semibold text-gray-700 mb-3 mt-6;
+}
+
+.prose p {
+  @apply text-gray-700 leading-relaxed mb-4;
+}
+
+.prose a {
+  @apply text-blue-600 hover:text-blue-800 transition-colors duration-200 font-medium;
+}
+
+.prose a:hover {
+  @apply underline;
+}
+
+/* Lists */
+.prose ul {
+  @apply list-disc pl-6 mb-6 space-y-2;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 mb-6 space-y-2;
+}
+
+.prose li {
+  @apply text-gray-700 leading-relaxed;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-blue-500 pl-4 py-1 my-6 italic text-gray-700 bg-blue-50 rounded-r-md;
+}
+
+/* Code blocks */
+.prose pre {
+  @apply bg-gray-800 text-white p-4 rounded-md overflow-x-auto mb-6;
+}
+
+.prose code:not(pre code) {
+  @apply bg-gray-100 text-red-600 px-1.5 py-0.5 rounded-md font-mono text-sm;
+}
+
+/* Tables */
+.prose table {
+  @apply w-full border-collapse mb-6;
+}
+
+.prose th {
+  @apply border border-gray-300 bg-gray-100 px-4 py-2 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-gray-300 px-4 py-2;
+}
+
+/* Images */
+.prose img {
+  @apply rounded-lg shadow-md max-w-full h-auto my-6 mx-auto;
+}
+
+.prose figure {
+  @apply my-8;
+}
+
+.prose figcaption {
+  @apply text-center text-sm text-gray-500 mt-2;
+}
+
+/* Horizontal rule */
+.prose hr {
+  @apply my-8 border-t-2 border-gray-200;
+}
+
+/* Table of contents styling */
+.toc-container {
+  @apply bg-gray-50 rounded-lg p-4 mb-6 border border-gray-200;
+}
+
+.toc-title {
+  @apply text-lg font-semibold mb-3 text-gray-800 flex items-center;
+}
+
+.toc-list {
+  @apply space-y-2;
+}
+
+.toc-item {
+  @apply text-blue-600 hover:text-blue-800 transition-colors duration-200;
+}
+
+.toc-item-h2 {
+  @apply ml-0;
+}
+
+.toc-item-h3 {
+  @apply ml-4;
+}
+
+.toc-item-h4 {
+  @apply ml-8;
+}
+
+/* Blog meta information */
+.blog-meta {
+  @apply flex flex-wrap items-center gap-3 text-sm text-gray-600 mb-6;
+}
+
+.blog-meta-item {
+  @apply flex items-center;
+}
+
+.blog-meta-icon {
+  @apply mr-1 text-blue-500;
+}
+
+/* Social sharing */
+.social-share {
+  @apply mt-8 pt-6 border-t border-gray-200;
+}
+
+.social-share-title {
+  @apply text-sm font-medium text-gray-700 mb-3 flex items-center;
+}
+
+.social-share-buttons {
+  @apply flex flex-wrap gap-2;
+}
+
+.social-button {
+  @apply text-white p-2 rounded-full transition-colors duration-200 flex items-center justify-center w-10 h-10;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .prose h1 {
+    @apply text-2xl;
+  }
+
+  .prose h2 {
+    @apply text-xl;
+  }
+
+  .prose h3 {
+    @apply text-lg;
+  }
+
+  .prose h4 {
+    @apply text-base;
+  }
+
+  .prose img {
+    @apply my-4;
+  }
+
+  .prose blockquote {
+    @apply my-4;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* General print styles */
+  @page {
+    margin: 1.5cm;
+  }
+
+  body {
+    @apply font-serif;
+  }
+
+  /* Hide non-essential elements */
+  header,
+  footer,
+  nav,
+  .toc-container,
+  .social-share,
+  .blog-sidebar,
+  .floating-share-button,
+  .back-to-top-button,
+  .reading-progress-bar,
+  .blog-cta,
+  .related-articles,
+  button,
+  .print-button {
+    @apply hidden !important;
+  }
+
+  /* Show the main content */
+  .blog-content-wrapper {
+    @apply block w-full max-w-none m-0 p-0;
+  }
+
+  /* Typography adjustments */
+  .prose {
+    @apply text-black max-w-none;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .prose h1 {
+    @apply text-3xl font-bold mb-4 mt-0;
+    page-break-after: avoid;
+  }
+
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply font-bold;
+    page-break-after: avoid;
+  }
+
+  .prose h2 {
+    @apply text-2xl mt-6 mb-3;
+  }
+
+  .prose h3 {
+    @apply text-xl mt-5 mb-2;
+  }
+
+  .prose p,
+  .prose ul,
+  .prose ol {
+    @apply mb-3;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Link handling */
+  .prose a {
+    @apply text-black font-normal no-underline;
+  }
+
+  .prose a::after {
+    content: ' (' attr(href) ')';
+    @apply text-gray-600 text-sm;
+  }
+
+  /* Image handling */
+  .prose img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Table handling */
+  .prose table {
+    page-break-inside: avoid;
+  }
+
+  /* Add blog URL at the bottom */
+  .blog-article::after {
+    content: 'Read more at: https://technicalsewa.com';
+    @apply block text-sm text-gray-500 mt-8 pt-4 border-t border-gray-300;
+  }
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offline - Technical Sewa</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .container {
+        text-align: center;
+        max-width: 600px;
+        padding: 2rem;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 2rem;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #667eea;
+        font-weight: bold;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+
+      .features {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 2rem 0;
+        backdrop-filter: blur(10px);
+      }
+
+      .features h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .features ul {
+        list-style: none;
+        text-align: left;
+      }
+
+      .features li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .features li:before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background: white;
+        color: #667eea;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: 600;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: #667eea;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+
+        .btn {
+          display: block;
+          margin: 10px auto;
+          width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">TS</div>
+      <h1>You're Offline</h1>
+      <p>
+        It looks like you're not connected to the internet. Don't worry, you can
+        still browse some of our cached content!
+      </p>
+
+      <div class="features">
+        <h2>What We Offer</h2>
+        <ul>
+          <li>Expert technical repair services</li>
+          <li>Professional training courses</li>
+          <li>On-site technical support</li>
+          <li>Quality parts and components</li>
+          <li>Certified technicians</li>
+        </ul>
+      </div>
+
+      <p>Once you're back online, you can:</p>
+
+      <a href="/" class="btn">Go to Homepage</a>
+      <a href="javascript:location.reload()" class="btn btn-secondary"
+        >Try Again</a
+      >
+
+      <script>
+        // Auto-refresh when online
+        window.addEventListener('online', function () {
+          location.reload();
+        });
+
+        // Show connection status
+        function updateConnectionStatus() {
+          if (navigator.onLine) {
+            document.body.style.background =
+              'linear-gradient(135deg, #4CAF50 0%, #45a049 100%)';
+            setTimeout(() => {
+              location.reload();
+            }, 1000);
+          }
+        }
+
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+      </script>
+    </div>
+  </body>
+</html>

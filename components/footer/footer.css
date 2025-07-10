@@ -1,0 +1,12 @@
+
+/* For only contact-us which is dynamic */
+h5 span{
+    font-size:10pt !important;
+}
+h5{
+    line-height: 1.5 !important;
+}
+.contact p span{
+    font-size: 10pt !important;
+    color:white !important;
+} 

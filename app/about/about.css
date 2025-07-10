@@ -1,0 +1,30 @@
+h1 span{
+    font-weight: bold !important;
+    color:black !important;
+    font-size: 25pt !important;
+}
+
+h1.MsoNormal{
+    margin-bottom: 10px !important;
+}
+p.MsoNormal {
+    line-height: 2 !important;
+}
+
+p.MsoNormal span{
+    color: black !important;
+    font-size: 11pt !important;
+}
+.aboutusbanner{
+    background-image: url('https://www.technicalsewa.com/assets/images/contactus.jpg');
+    object-fit: contain;
+    object-position: center;
+}
+.about h1 span{
+    font-size:18pt !important;
+}
+@media screen and (max-width: 767px) {
+    .about h1 span{
+        font-size:14pt !important;
+    }
+}
