@@ -1,8 +1,9 @@
-import Nav from "@/components/Nav";
-import Footer from "@/components/footer/Footer";
-import Service from "@/components/pageHelperComponents.js/Service";
-import { fetchServerClient } from "@/lib/api";
-import React from "react";
+import '@/styles/service-pages.css';
+import Nav from '@/components/Nav';
+import Footer from '@/components/footer/Footer';
+import Service from '@/components/pageHelperComponents.js/Service';
+import { fetchServerClient } from '@/lib/api';
+import React from 'react';
 
 const page = async () => {
   let servicesData = { brands: [] };
@@ -17,7 +18,10 @@ const page = async () => {
     }
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
-      console.log("Services data unavailable:", error instanceof Error ? error.message : 'Unknown error');
+      console.log(
+        'Services data unavailable:',
+        error instanceof Error ? error.message : 'Unknown error'
+      );
     }
     // servicesData already has fallback
   }
@@ -31,7 +35,10 @@ const page = async () => {
     }
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
-      console.log("Slider data unavailable:", error instanceof Error ? error.message : 'Unknown error');
+      console.log(
+        'Slider data unavailable:',
+        error instanceof Error ? error.message : 'Unknown error'
+      );
     }
     // data already has fallback (empty array)
   }
