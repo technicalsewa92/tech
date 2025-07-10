@@ -18,7 +18,9 @@ export function getCdnUrl(path: string): string {
 }
 
 export function shouldUseCdn(path: string): boolean {
-  const staticAssetRegex = /\.(jpg|jpeg|png|gif|svg|webp|avif|css|js)$/i;
+  // Add support for fonts and other common static assets
+  const staticAssetRegex =
+    /\.(jpg|jpeg|png|gif|svg|webp|avif|css|js|woff|woff2|ttf|eot|otf|ico|json|xml)$/i;
   return staticAssetRegex.test(path);
 }
 
@@ -27,10 +29,7 @@ export function getAssetUrl(path: string): string {
   if (path.includes('tslogo-final1.png')) {
     return path;
   }
-  // Use CDN for static assets only in production, fallback to local in development or other envs
-  if (process.env.NODE_ENV !== 'production') {
-    return path;
-  }
+  // Always use CDN for static assets if they match the pattern
   return shouldUseCdn(path) ? getCdnUrl(path) : path;
 }
 

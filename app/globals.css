@@ -7,20 +7,7 @@ body {
   font-family: var(--font-inter, 'Inter', sans-serif);
 }
 
-/* Import homepage layout fixes - minimal changes */
-@import '../styles/homepage-layout-fixes.css';
-
-/* Import custom homepage enhancements */
-@import '../styles/homepage-enhancements.css';
-
-/* Import performance optimizations */
-@import '../styles/optimizations.css';
-
-/* Import service pages optimization */
-@import '../styles/service-pages.css';
-
-/* Import mobile optimizations */
-@import '../styles/mobile-optimizations.css';
+/* The following CSS imports are for development only. These files are generated or merged into the main CSS bundle during production build and should not be tracked or edited manually. Remove them from version control if present: homepage-layout-fixes.css, homepage-enhancements.css, optimizations.css, service-pages.css, mobile-optimizations.css. */
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
