@@ -20,23 +20,23 @@ const SlideCard = ({ length, data, top }: any) => {
   const breakpoints = {
     320: {
       slidesPerView: 1.2,
-      spaceBetween: 30, // Increased gap between slides on mobile
+      spaceBetween: 10, // 10px gap for mobile
     },
     640: {
       slidesPerView: 2,
-      spaceBetween: 24,
+      spaceBetween: 10,
     },
     768: {
       slidesPerView: 3,
-      spaceBetween: 28,
+      spaceBetween: 20,
     },
     1024: {
       slidesPerView: 5,
-      spaceBetween: 32,
+      spaceBetween: 20,
     },
     1280: {
       slidesPerView: 5,
-      spaceBetween: 32,
+      spaceBetween: 20,
     },
   };
 
@@ -58,7 +58,7 @@ const SlideCard = ({ length, data, top }: any) => {
     <Swiper
       ref={swiperRef}
       onSwiper={swiper => (swiperRef.current = swiper)}
-      className="service-swiper-compact flex overflow-hidden justify-center items-center px-2 pt-3 pb-8 cursor-pointer gap-x-20"
+      className="service-swiper-compact flex overflow-hidden justify-center items-center px-2 pt-3 pb-8 cursor-pointer"
       autoplay={{
         delay: 4000,
         disableOnInteraction: false,
@@ -74,7 +74,7 @@ const SlideCard = ({ length, data, top }: any) => {
       grabCursor={true}
     >
       {data?.map((ele: any, index: any) => (
-        <SwiperSlide key={index} className="!mr-20">
+        <SwiperSlide key={index} className="md:!mr-20">
           <div
             className="p-0 m-0"
             onMouseEnter={handleMouseEnter}

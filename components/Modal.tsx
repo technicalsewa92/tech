@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import Image from "next/image";
-import { RxCross2 } from "react-icons/rx";
-import Link from "next/link";
-import { normalizeImageUrl } from "@/utils/imageUtils";
+import React, { useEffect, useRef, useState, useCallback } from 'react';
+import Image from 'next/image';
+import { RxCross2 } from 'react-icons/rx';
+import Link from 'next/link';
+import { normalizeImageUrl } from '@/utils/imageUtils';
 
 const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
   const myDialog: any = useRef(null);
@@ -18,17 +18,20 @@ const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
     }, 200);
   }, [onClose]);
 
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      handleClose();
-    }
-  }, [handleClose]);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
 
   useEffect(() => {
     if (myDialog.current) {
       myDialog.current.showModal();
     }
-    
+
     document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
 
@@ -40,7 +43,7 @@ const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div 
+      <div
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
         onClick={handleClose}
       />
@@ -53,9 +56,9 @@ const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
         <div className="flex justify-between items-center p-4 border-b">
           <div className="flex gap-3 items-center">
             <div className="relative w-8 h-8">
-              <Image 
-                src={imageUrl} 
-                alt={imgAlt} 
+              <Image
+                src={imageUrl}
+                alt={imgAlt}
                 fill
                 className="object-contain rounded"
                 sizes="32px"
@@ -72,7 +75,7 @@ const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
             <RxCross2 size={24} />
           </button>
         </div>
-        
+
         <div className="p-6 max-h-[60vh] overflow-y-auto">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-items-center">
             {filterData?.map((val: any, index: number) => (
@@ -94,7 +97,7 @@ const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
                     />
                   )}
                 </div>
-                {val.brand_id !== "76" && (
+                {val.brand_id !== '76' && (
                   <p className="text-xs text-center font-medium text-gray-700 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {val.product_name}
                   </p>

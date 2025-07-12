@@ -50,7 +50,7 @@ export default function ServicesSliders({
                 className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
                 style={{
                   marginBottom: 10,
-                  marginTop: 10,
+                  marginTop: 30,
                   paddingBottom: 10,
                   paddingTop: 10,
                 }}
@@ -80,7 +80,7 @@ export default function ServicesSliders({
                   className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
                   style={{
                     marginBottom: 10,
-                    marginTop: 10,
+                    marginTop: 30,
                     paddingBottom: 10,
                     paddingTop: 10,
                   }}

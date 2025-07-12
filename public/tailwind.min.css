@@ -4664,12 +4664,6 @@ h4 {
   backdrop-filter: blur(10px);
   background: #fffffff2;
 }
-.service-card-compact:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px #0000001f;
-  border-color: #3b82f6;
-  background: #fffffffa;
-}
 .service-card-title-compact {
   font-weight: 600;
   color: #1f2937;
@@ -4684,9 +4678,7 @@ h4 {
   text-overflow: ellipsis;
   word-wrap: break-word;
 }
-.service-card-compact:hover .service-card-title-compact {
-  color: #3b82f6;
-}
+
 .service-card-description-compact {
   color: #6b7280;
   font-size: 0.65rem;
@@ -4699,9 +4691,6 @@ h4 {
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   max-height: 2.4em;
-}
-.service-card-compact:hover .service-card-description-compact {
-  opacity: 1;
 }
 .service-card-description,
 .service-card-description-compact,

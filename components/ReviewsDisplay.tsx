@@ -8,7 +8,6 @@ import {
   GoogleReview,
   ReviewStats,
 } from '../lib/googleReviews';
-import { getAssetUrl } from '@/lib/cdn';
 
 interface ReviewsDisplayProps {
   limit?: number;
@@ -28,25 +27,30 @@ const ReviewsDisplay: React.FC<ReviewsDisplayProps> = ({
   const [reviews, setReviews] = useState<GoogleReview[]>([]);
   const [stats, setStats] = useState<ReviewStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
         setLoading(true);
+        setError(null);
         const [reviewsData, statsData] = await Promise.all([
           getGoogleBusinessReviews(limit),
           showStats ? getGoogleReviewStats() : Promise.resolve(null),
         ]);
-
         setReviews(reviewsData);
         setStats(statsData);
-      } catch (error) {
-        console.error('Error fetching reviews:', error);
+      } catch (err) {
+        setError(
+          'Unable to load reviews at this time. Please try again later.'
+        );
+        setReviews([]);
+        setStats(null);
+        console.error('Error fetching reviews:', err);
       } finally {
         setLoading(false);
       }
     };
-
     fetchReviews();
   }, [limit, showStats]);
 
@@ -82,7 +86,7 @@ const ReviewsDisplay: React.FC<ReviewsDisplayProps> = ({
           </div>
           <div className="flex items-center gap-2">
             <ImageWithFallback
-              src={getAssetUrl('/assets/google.png')}
+              src="/assets/google.png"
               alt="Google"
               className="w-6 h-6"
               width={24}
@@ -146,7 +150,7 @@ const ReviewsDisplay: React.FC<ReviewsDisplayProps> = ({
         </div>
         <div className="flex items-center gap-1">
           <ImageWithFallback
-            src={getAssetUrl('/assets/google.png')}
+            src="/assets/google.png"
             alt="Google"
             className="w-6 h-6"
             width={24}
@@ -200,6 +204,25 @@ const ReviewsDisplay: React.FC<ReviewsDisplayProps> = ({
     );
   }
 
+  if (error) {
+    return (
+      <div className={`${className}`}>
+        <div className="text-center mb-10">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="h-0.5 w-8 bg-red-500 rounded-full"></div>
+            <span className="text-red-600 font-medium text-sm uppercase tracking-wide">
+              Error
+            </span>
+            <div className="h-0.5 w-8 bg-red-500 rounded-full"></div>
+          </div>
+          <h2 className="text-2xl font-bold text-red-600 text-center mb-4">
+            {error}
+          </h2>
+        </div>
+      </div>
+    );
+  }
+
   const getLayoutClasses = () => {
     switch (layout) {
       case 'carousel':
@@ -226,15 +249,18 @@ const ReviewsDisplay: React.FC<ReviewsDisplayProps> = ({
           href="https://www.google.com/maps/place/Technical+Sewa+%26+Solution/@27.6700683,85.3198645,17z/data=!3m1!4b1!4m6!3m5!1s0x39eb191011dd10b1:0x92f063afe7e0a48f!8m2!3d27.6700683!4d85.3198645!16s%2Fg%2F11wth8wt06"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="View all reviews on Google (opens in a new tab)"
           className="inline-flex items-center gap-2 px-7 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors shadow"
         >
-          <ImageWithFallback
-            src={getAssetUrl('/assets/google.png')}
-            alt="Google"
-            className="w-5 h-5"
-            width={20}
-            height={20}
-          />
+          <span className="inline-flex items-center justify-center w-5 h-5 bg-white rounded-full mr-1">
+            <ImageWithFallback
+              src="/assets/google.png"
+              alt="Google"
+              className="w-4 h-4"
+              width={16}
+              height={16}
+            />
+          </span>
           View all reviews on Google
         </a>
       </div>
