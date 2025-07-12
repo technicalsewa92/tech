@@ -49,10 +49,10 @@ export default function ServicesSliders({
               <h3
                 className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
                 style={{
-                  marginBottom: 8,
+                  marginBottom: 10,
                   marginTop: 10,
-                  paddingBottom: 0,
-                  paddingTop: 0,
+                  paddingBottom: 10,
+                  paddingTop: 10,
                 }}
               >
                 {firstWithData.name}
@@ -79,10 +79,10 @@ export default function ServicesSliders({
                 <h4
                   className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
                   style={{
-                    marginBottom: 8,
+                    marginBottom: 10,
                     marginTop: 10,
-                    paddingBottom: 0,
-                    paddingTop: 0,
+                    paddingBottom: 10,
+                    paddingTop: 10,
                   }}
                 >
                   {brand.name}

@@ -127,35 +127,92 @@ export default function ServicesSLiders({
         )}
 
         <div className="w-full">
-          {pairBrands.map((brand, idx) => {
-            const brandServices = data?.filter(
-              (d: any) => +d?.brand_id === brand?.id
-            );
-            if (!brandServices.length) return null;
-            return (
-              <div
-                key={brand.id}
-                className="w-full m-0"
-                style={{
-                  marginTop: idx === 0 ? 20 : 0,
-                  marginBottom: 20,
-                }}
-              >
-                <h4
-                  className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
-                  style={{
-                    marginBottom: 8,
-                    marginTop: 10,
-                    paddingBottom: 0,
-                    paddingTop: 0,
-                  }}
-                >
-                  {brand?.name}
-                </h4>
-                <Slider data={brandServices} />
-              </div>
-            );
-          })}
+          {/* Group brands into pairs for side-by-side rendering if both have <=2 items */}
+          {(() => {
+            const pairs = [];
+            for (let i = 0; i < pairBrands.length; i += 2) {
+              pairs.push([pairBrands[i], pairBrands[i + 1]].filter(Boolean));
+            }
+            return pairs.map((pair, pairIdx) => {
+              // Get services for each brand in the pair
+              const brandServicesArr = pair.map(brand =>
+                data?.filter((d: any) => +d?.brand_id === brand?.id)
+              );
+              // If both brands exist and both have 2 or fewer items, render side by side
+              const brandServices0 = brandServicesArr[0] || [];
+              const brandServices1 = brandServicesArr[1] || [];
+              if (
+                pair.length === 2 &&
+                brandServices0.length <= 2 &&
+                brandServices1.length <= 2
+              ) {
+                return (
+                  <div
+                    key={pair.map(b => b.id).join('-')}
+                    className="flex flex-row gap-x-12 w-full mb-8"
+                  >
+                    <div key={pair[0].id} className="flex-1">
+                      <h4
+                        className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
+                        style={{
+                          marginBottom: 8,
+                          marginTop: 10,
+                          paddingBottom: 0,
+                          paddingTop: 0,
+                        }}
+                      >
+                        {pair[0]?.name}
+                      </h4>
+                      <Slider data={brandServices0} />
+                    </div>
+                    <div key={pair[1].id} className="flex-1">
+                      <h4
+                        className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
+                        style={{
+                          marginBottom: 8,
+                          marginTop: 10,
+                          paddingBottom: 0,
+                          paddingTop: 0,
+                        }}
+                      >
+                        {pair[1]?.name}
+                      </h4>
+                      <Slider data={brandServices1} />
+                    </div>
+                  </div>
+                );
+              } else {
+                // Otherwise, render each brand as a full row
+                return pair.map((brand, idx) => {
+                  const brandServices = brandServicesArr[idx] || [];
+                  if (!brandServices.length) return null;
+                  return (
+                    <div
+                      key={brand.id}
+                      className="w-full m-0"
+                      style={{
+                        marginTop: pairIdx === 0 && idx === 0 ? 20 : 0,
+                        marginBottom: 20,
+                      }}
+                    >
+                      <h4
+                        className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
+                        style={{
+                          marginBottom: 8,
+                          marginTop: 10,
+                          paddingBottom: 0,
+                          paddingTop: 0,
+                        }}
+                      >
+                        {brand?.name}
+                      </h4>
+                      <Slider data={brandServices} />
+                    </div>
+                  );
+                });
+              }
+            });
+          })()}
         </div>
       </div>
     </div>
