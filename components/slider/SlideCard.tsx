@@ -58,7 +58,7 @@ const SlideCard = ({ length, data, top }: any) => {
     <Swiper
       ref={swiperRef}
       onSwiper={swiper => (swiperRef.current = swiper)}
-      className="service-swiper-compact flex overflow-hidden justify-center items-center px-2 pt-3 pb-8 cursor-pointer"
+      className="service-swiper-compact flex overflow-hidden justify-center items-center px-2 pt-3 pb-8 cursor-pointer gap-x-20"
       autoplay={{
         delay: 4000,
         disableOnInteraction: false,
@@ -74,7 +74,7 @@ const SlideCard = ({ length, data, top }: any) => {
       grabCursor={true}
     >
       {data?.map((ele: any, index: any) => (
-        <SwiperSlide key={index}>
+        <SwiperSlide key={index} className="!mr-20">
           <div
             className="p-0 m-0"
             onMouseEnter={handleMouseEnter}
@@ -82,7 +82,7 @@ const SlideCard = ({ length, data, top }: any) => {
           >
             <Link
               href={`/service/${ele?.url_product_name}`}
-              className="service-card-compact flex flex-col items-stretch p-0 m-0 h-full min-h-[245px] h-[245px] w-[270px] max-w-full border border-[#2591b2]/10 rounded-2xl overflow-hidden bg-white
+              className="service-card-compact flex flex-col items-stretch p-0 m-0 h-full min-h-[245px] h-[245px] w-[270px] max-w-full rounded-[4px] overflow-hidden bg-white
                 sm:min-h-[245px] sm:h-[245px] sm:w-[270px]
                 min-h-[170px] h-[170px] w-[170px]"
               style={{
@@ -99,7 +99,7 @@ const SlideCard = ({ length, data, top }: any) => {
                   : {}),
               }}
             >
-              <div className="relative w-full h-24 sm:h-36 md:h-40 overflow-hidden rounded-t-2xl flex items-center justify-center">
+              <div className="relative w-full h-24 sm:h-36 md:h-40 overflow-hidden rounded-t-[4px] flex items-center justify-center">
                 <Image
                   height={176}
                   width={240}

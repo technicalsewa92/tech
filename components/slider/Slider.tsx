@@ -13,7 +13,12 @@ const Slider = ({ data, top }: any) => {
 
   return (
     <div className="w-full">
-      <SlideCard top={top} length={top ? 5 : length} data={data} />
+      <SlideCard
+        top={top}
+        length={top ? 5 : length}
+        data={data}
+        className="bg-white rounded-[4px] shadow-md"
+      />
     </div>
   );
 };
