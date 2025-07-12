@@ -9,9 +9,9 @@ const FooterContact = () => {
     setopen(false);
   };
   return (
-    <section className="footer-contact-section bg-white-100 md:block hidden py-20">
+    <section className="footer-contact-section bg-white-100 md:block hidden py-20 w-full">
       <CallbackFormModal open={open} onClose={onClose} />
-      <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-stretch gap-8">
+      <div className="max-w-[1280px] mx-auto w-full px-4 flex flex-col md:flex-row items-stretch gap-8">
         {/* Left: Contact Info and CTA */}
         <div className="flex-1 flex flex-col justify-center text-center md:text-left">
           {/* Section Header */}

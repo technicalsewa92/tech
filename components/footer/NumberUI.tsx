@@ -36,120 +36,122 @@ const NumberUI = ({ numbers }: any) => {
       {/* Gradient overlay */}
       {/* Removed extra overlay for a cleaner brand look */}
 
-      <div className="relative w-full px-[20px] md:px-[20px] pt-[20px] pb-[20px] bg-white">
-        {/* Enhanced Section Header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="h-0.5 w-8 bg-brand-primary rounded-full"></div>
-            <span className="text-brand-primary font-medium text-sm tracking-wide uppercase">
-              Our Impact
-            </span>
-            <div className="h-0.5 w-8 bg-brand-primary rounded-full"></div>
+      <div className="relative w-full bg-white">
+        <div className="max-w-[1280px] mx-auto w-full px-[20px] md:px-[20px] pt-[20px] pb-[20px]">
+          {/* Enhanced Section Header */}
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-0.5 w-8 bg-brand-primary rounded-full"></div>
+              <span className="text-brand-primary font-medium text-sm tracking-wide uppercase">
+                Our Impact
+              </span>
+              <div className="h-0.5 w-8 bg-brand-primary rounded-full"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+              Trusted by Thousands Across Nepal
+            </h2>
+            <p className="text-brand-primary max-w-2xl mx-auto opacity-80">
+              Join our growing community of satisfied customers who trust us
+              with their appliance repair needs.
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-            Trusted by Thousands Across Nepal
-          </h2>
-          <p className="text-brand-primary max-w-2xl mx-auto opacity-80">
-            Join our growing community of satisfied customers who trust us with
-            their appliance repair needs.
-          </p>
-        </div>
 
-        {/* Enhanced Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-brand-primary">
-          {/* Service Requests */}
-          <div className="group text-center">
-            <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
-              <div className="relative">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
-                  <CountUp
-                    end={numbers?.complains || 500}
-                    duration={2}
-                    enableScrollSpy
-                  />
-                  <span className="text-brand-primary">+</span>
+          {/* Enhanced Stats Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-brand-primary">
+            {/* Service Requests */}
+            <div className="group text-center">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+                <div className="relative">
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                    <CountUp
+                      end={numbers?.complains || 500}
+                      duration={2}
+                      enableScrollSpy
+                    />
+                    <span className="text-brand-primary">+</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                    Service Requests
+                  </h3>
+                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                    Successfully completed
+                  </p>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
-                  Service Requests
-                </h3>
-                <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
-                  Successfully completed
-                </p>
+              </div>
+            </div>
+            {/* Happy Customers */}
+            <div className="group text-center">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+                <div className="relative">
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                    <CountUp
+                      end={numbers?.customers || 1000}
+                      duration={2.2}
+                      enableScrollSpy
+                    />
+                    <span className="text-brand-primary">+</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                    Happy Customers
+                  </h3>
+                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                    Nationwide satisfaction
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Expert Technicians */}
+            <div className="group text-center">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+                <div className="relative">
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                    <CountUp
+                      end={numbers?.technicians || 50}
+                      duration={1.8}
+                      enableScrollSpy
+                    />
+                    <span className="text-brand-primary">+</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                    Expert Technicians
+                  </h3>
+                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                    Certified professionals
+                  </p>
+                </div>
+              </div>
+            </div>
+            {/* Service Areas */}
+            <div className="group text-center">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+                <div className="relative">
+                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                    <CountUp end={15} duration={1.5} enableScrollSpy />
+                    <span className="text-brand-primary">+</span>
+                  </div>
+                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                    Service Areas
+                  </h3>
+                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                    Cities covered
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          {/* Happy Customers */}
-          <div className="group text-center">
-            <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
-              <div className="relative">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
-                  <CountUp
-                    end={numbers?.customers || 1000}
-                    duration={2.2}
-                    enableScrollSpy
-                  />
-                  <span className="text-brand-primary">+</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
-                  Happy Customers
-                </h3>
-                <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
-                  Nationwide satisfaction
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* Expert Technicians */}
-          <div className="group text-center">
-            <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
-              <div className="relative">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
-                  <CountUp
-                    end={numbers?.technicians || 50}
-                    duration={1.8}
-                    enableScrollSpy
-                  />
-                  <span className="text-brand-primary">+</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
-                  Expert Technicians
-                </h3>
-                <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
-                  Certified professionals
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* Service Areas */}
-          <div className="group text-center">
-            <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
-              <div className="relative">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
-                  <CountUp end={15} duration={1.5} enableScrollSpy />
-                  <span className="text-brand-primary">+</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
-                  Service Areas
-                </h3>
-                <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
-                  Cities covered
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Additional trust indicators */}
-        <div className="mt-8 pt-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-            <span className="text-2xl">⭐</span>
-            <span className="text-brand-primary font-semibold">
-              4.9/5 Average Rating
-            </span>
-            <span className="text-brand-primary">•</span>
-            <span className="text-brand-primary">
-              99% Customer Satisfaction
-            </span>
+          {/* Additional trust indicators */}
+          <div className="mt-8 pt-8 text-center">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
+              <span className="text-2xl">⭐</span>
+              <span className="text-brand-primary font-semibold">
+                4.9/5 Average Rating
+              </span>
+              <span className="text-brand-primary">•</span>
+              <span className="text-brand-primary">
+                99% Customer Satisfaction
+              </span>
+            </div>
           </div>
         </div>
       </div>

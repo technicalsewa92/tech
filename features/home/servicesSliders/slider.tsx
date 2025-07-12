@@ -28,8 +28,8 @@ export default function ServicesSliders({
 
   // Modern card style for each brand slider
   return (
-    <section className="w-full py-16 min-h-[30vh] px-4 sm:px-8">
-      <div className="container mx-auto">
+    <section className="w-full py-16 min-h-[30vh] bg-inherit">
+      <div className="max-w-[1280px] mx-auto w-full px-4">
         {/* Top Sliders for special categories */}
         {/* Show only one service type (first with data) and 5 services under it */}
         {(() => {

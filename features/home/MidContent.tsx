@@ -8,8 +8,8 @@ const MidContent = async () => {
 
   const paragraphs = desc?.data?.description?.split('</p>');
   return (
-    <section className="bg-blue-600 py-16">
-      <div className="container xl:w-[80rem] mx-auto px-4">
+    <section className="bg-blue-600 py-16 w-full">
+      <div className="max-w-[1280px] mx-auto w-full px-4">
         <div className="grid md:grid-cols-3 grid-cols-1 gap-6 text-white">
           {paragraphs?.map((paragraph: any, index: any) => (
             <div

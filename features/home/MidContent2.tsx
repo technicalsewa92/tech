@@ -28,8 +28,8 @@ const MidContent2 = async () => {
   }
 
   return (
-    <section className="bg-primary py-16" id="tsewa_about_ex">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
+    <section className="bg-primary py-16 w-full" id="tsewa_about_ex">
+      <div className="max-w-[1280px] mx-auto w-full px-4 md:px-8">
         <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20">
           <div className="font-normal leading-relaxed text-white footerup">
             <div className="flex flex-col md:flex-row gap-8 items-center">
@@ -42,7 +42,7 @@ const MidContent2 = async () => {
                   About Technical Sewa
                 </h1>
                 <p className="mb-4">
-                  <strong>Technical Sewa</strong> is Nepal’s leading provider of
+                  <strong>Technical Sewa</strong> is Nepals leading provider of
                   professional repair and maintenance services for home
                   appliances, electronics, and more. With a commitment to
                   quality, reliability, and customer satisfaction, we have built

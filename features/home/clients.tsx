@@ -44,8 +44,8 @@ export default function ClientsSlider({ clients }: ClientsProps) {
   if (!showSlider || !clientsImage?.length) return null;
 
   return (
-    <div className="bg-[#2591b2]/5 py-12 px-2 sm:px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-[#2591b2]/5 py-12 px-2 sm:px-4 w-full">
+      <div className="max-w-[1280px] mx-auto w-full px-4">
         {/* Section Header */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-3 mb-4">
