@@ -1,9 +1,22 @@
+/**
+ * Proxy API requests to backend to bypass CORS in local development
+ */
+const rewrites = async () => [
+  {
+    source: '/api/techsewa/:path*',
+    destination: 'https://www.technicalsewa.com/techsewa/:path*',
+  },
+];
+
 /** @type {import('next').NextConfig} */
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
 const nextConfig = {
+  async rewrites() {
+    return process.env.NODE_ENV === 'development' ? await rewrites() : [];
+  },
   reactStrictMode: true, // ✅ Enable for better development experience
   output: 'standalone',
   eslint: {

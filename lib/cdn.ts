@@ -5,32 +5,66 @@
  * jsDelivr is a free, fast, and reliable CDN that can significantly improve website performance.
  */
 
-// Use jsDelivr CDN for assets if repo is public, otherwise fallback to local
+// Allow global override for CDN base URL (for flexibility in all environments)
+const ENV_CDN_BASE_URL = process.env.NEXT_PUBLIC_CDN_BASE_URL;
 const GITHUB_USER =
   process.env.NEXT_PUBLIC_CDN_GITHUB_USER || 'technicalsewa92';
 const GITHUB_REPO = process.env.NEXT_PUBLIC_CDN_GITHUB_REPO || 'tech';
 const GITHUB_BRANCH = process.env.NEXT_PUBLIC_CDN_GITHUB_BRANCH || 'main';
-export const CDN_BASE_URL = `https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${GITHUB_REPO}@${GITHUB_BRANCH}`;
+export const CDN_BASE_URL =
+  ENV_CDN_BASE_URL ||
+  `https://cdn.jsdelivr.net/gh/${GITHUB_USER}/${GITHUB_REPO}@${GITHUB_BRANCH}`;
 
+// List of static asset extensions to serve via CDN
+const STATIC_ASSET_REGEX =
+  /\.(jpg|jpeg|png|gif|svg|webp|avif|css|js|woff|woff2|ttf|eot|otf|ico|json|xml|map|txt|webmanifest)$/i;
+
+/**
+ * Returns the CDN URL for a given asset path
+ * @param path Asset path (relative to public/ or absolute)
+ */
 export function getCdnUrl(path: string): string {
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
   return `${CDN_BASE_URL}/${cleanPath}`;
 }
 
-export function shouldUseCdn(path: string): boolean {
-  // Add support for fonts and other common static assets
-  const staticAssetRegex =
-    /\.(jpg|jpeg|png|gif|svg|webp|avif|css|js|woff|woff2|ttf|eot|otf|ico|json|xml)$/i;
-  return staticAssetRegex.test(path);
+/**
+ * Determines if a path should be served from CDN
+ * @param path Asset path
+ * @param forceCdn Optional: force CDN usage regardless of extension
+ */
+export function shouldUseCdn(path: string, forceCdn = false): boolean {
+  if (forceCdn) return true;
+  return STATIC_ASSET_REGEX.test(path);
 }
 
-export function getAssetUrl(path: string): string {
+/**
+ * Returns the correct asset URL (CDN or local) for any static asset
+ * @param path Asset path (relative to public/ or absolute)
+ * @param opts Options: { forceCdn?: boolean, fallbackToLocal?: boolean }
+ */
+export function getAssetUrl(
+  path: string,
+  opts?: { forceCdn?: boolean; fallbackToLocal?: boolean }
+): string {
   // Always use local for tslogo-final1.png if CDN is broken or for fallback
   if (path.includes('tslogo-final1.png')) {
     return path;
   }
-  // Always use CDN for static assets if they match the pattern
-  return shouldUseCdn(path) ? getCdnUrl(path) : path;
+  // If forced, always use CDN
+  if (opts?.forceCdn) {
+    return getCdnUrl(path);
+  }
+  // Use CDN for static assets
+  if (shouldUseCdn(path)) {
+    return getCdnUrl(path);
+  }
+  // Optionally fallback to local if CDN fails (for SSR or dev)
+  if (opts?.fallbackToLocal) {
+    return path;
+  }
+  // Default: return as-is (local)
+  return path;
 }
 
 /**

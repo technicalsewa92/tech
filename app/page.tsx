@@ -149,7 +149,7 @@ export default async function Home() {
       {/* Popup Banner */}
       <PopupBanner />
       {/* Main content with all features - Original NewFeature component */}
-      <section className="w-full px-0 md:px-0 pb-8 md:pb-16 pt-0">
+      <section className="w-full px-0 md:px-0 pb-8 md:pb-4 pt-0">
         <NewFeature />
       </section>
     </main>

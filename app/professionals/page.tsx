@@ -52,7 +52,7 @@ const page = async () => {
         </div>
 
         {/* Customer Reviews Section */}
-        <div className="py-16 bg-gray-50">
+        <div className="py-16 bg-white-100">
           <div className="max-w-[1280px] mx-auto px-4">
             <ReviewsDisplay
               limit={3}

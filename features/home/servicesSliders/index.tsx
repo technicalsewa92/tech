@@ -48,8 +48,8 @@ export default function ServicesSLiders({
     <div
       className="p-5 md:p-5 lg:p-5 xl:p-5 2xl:p-5 sm:p-5"
       style={{
-        margin: '10px',
-        padding: '20px',
+        margin: '0 10px 0 10px',
+        padding: '0 10px 0 10px',
         ...(typeof window !== 'undefined' && window.innerWidth >= 768
           ? { margin: '40px', padding: '20px' }
           : {}),
@@ -71,7 +71,7 @@ export default function ServicesSLiders({
             className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
             style={{
               marginBottom: 8,
-              marginTop: 20,
+              marginTop: 10,
               paddingBottom: 0,
               paddingTop: 0,
             }}
@@ -88,7 +88,7 @@ export default function ServicesSLiders({
             className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
             style={{
               marginBottom: 8,
-              marginTop: 20,
+              marginTop: 10,
               paddingBottom: 0,
               paddingTop: 0,
             }}
@@ -105,7 +105,7 @@ export default function ServicesSLiders({
             className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
             style={{
               marginBottom: 8,
-              marginTop: 20,
+              marginTop: 10,
               paddingBottom: 0,
               paddingTop: 0,
             }}
@@ -122,7 +122,7 @@ export default function ServicesSLiders({
             className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
             style={{
               marginBottom: 8,
-              marginTop: 20,
+              marginTop: 10,
               paddingBottom: 0,
               paddingTop: 0,
             }}
@@ -152,7 +152,7 @@ export default function ServicesSLiders({
                 className="text-primary font-bold text-[20px] leading-tight text-left m-0 p-0 mb-2"
                 style={{
                   marginBottom: 8,
-                  marginTop: 0,
+                  marginTop: 10,
                   paddingBottom: 0,
                   paddingTop: 0,
                 }}

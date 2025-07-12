@@ -36,7 +36,7 @@ const NumberUI = ({ numbers }: any) => {
       {/* Gradient overlay */}
       {/* Removed extra overlay for a cleaner brand look */}
 
-      <div className="relative container mx-auto py-20 md:py-28 px-4 bg-gradient-to-r from-[#2591b2]/10 to-[#2591b2]/5 rounded-3xl">
+      <div className="relative w-full px-[20px] md:px-[20px] pt-[20px] pb-[20px] bg-white">
         {/* Enhanced Section Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -140,7 +140,7 @@ const NumberUI = ({ numbers }: any) => {
         </div>
 
         {/* Additional trust indicators */}
-        <div className="mt-20 text-center">
+        <div className="mt-8 pt-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
             <span className="text-2xl">⭐</span>
             <span className="text-brand-primary font-semibold">

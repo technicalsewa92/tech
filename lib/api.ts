@@ -1,3 +1,10 @@
+// Simple fetch client for client-side requests
+export async function fetchClient(url: string, options = {}) {
+  const defaultOptions = {};
+  const mergedOptions = { ...defaultOptions, ...options };
+  const response = await fetch(`${baseUrl}${url}`, mergedOptions as any);
+  return response.json();
+}
 // --- Child Service API Utilities ---
 
 // 1. Fetch all services/products for a parent category
