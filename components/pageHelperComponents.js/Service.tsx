@@ -1,8 +1,9 @@
 'use client';
 
+'use client';
+
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-
 import { Link as ScrollLink } from 'react-scroll';
 import ServiceProducts from '../Serviceproduct';
 
@@ -13,7 +14,9 @@ interface ServiceItem {
 }
 
 const Service = ({ services, data = [] }: any) => {
-  const [activeviewId, setActiveviewId] = useState<number>(0);
+  const [activeviewId, setActiveviewId] = useState<number>(
+    services && services.length > 1 ? +services[1]?.brand_id : 0
+  );
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   let servicesList = services.map((i: any) => ({
@@ -63,12 +66,65 @@ const Service = ({ services, data = [] }: any) => {
         <p className="text-lg text-gray-600">
           Professional repair and maintenance services for all your appliances
         </p>
+        {/* Category Pills Selector */}
+        <div className="category-pills-container mt-4 flex-nowrap overflow-x-auto whitespace-nowrap pb-2 px-2 mx-2 md:mx-0 md:px-8 md:justify-center scrollbar-hide md:hidden w-full touch-auto">
+          {servicesList.slice(1).map((item, index, arr) => (
+            <button
+              key={item.id}
+              onClick={() => {
+                setActiveviewId(item.id);
+                const el = document.getElementById(`service_${item.id}`);
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className={`category-pill ${activeviewId === item.id ? 'active' : ''} mr-2 md:mr-0${index === arr.length - 1 ? ' mr-0' : ''}`}
+              style={{ flex: '0 0 auto' }}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+        <style jsx>{`
+          .category-pills-container::-webkit-scrollbar {
+            display: none;
+          }
+          .category-pill {
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1.5px solid #d1d5db;
+            background: #fff;
+            color: #1e293b;
+            font-weight: 500;
+            font-size: 1rem;
+            white-space: nowrap;
+            box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.03);
+            transition: all 0.18s;
+            outline: none;
+            cursor: pointer;
+            min-width: 0;
+            width: auto;
+            max-width: 100%;
+          }
+          .category-pill:hover,
+          .category-pill:focus {
+            background: #f1f5f9;
+            color: #2563eb;
+            border-color: #2563eb;
+          }
+          .category-pill.active {
+            background: #e0e7ff;
+            color: #1d4ed8;
+            border-color: #6366f1;
+            font-weight: 600;
+          }
+        `}</style>
       </div>
 
       <div className="service-layout">
         {/* Service Sidebar Navigation */}
         <div
-          className="service-sidebar"
+          className="service-sidebar hidden md:block"
           ref={sidebarRef}
           style={{ overflowY: 'auto', maxHeight: '80vh' }}
         >
@@ -81,9 +137,7 @@ const Service = ({ services, data = [] }: any) => {
                 key={index}
                 activeClass="active"
                 onSetActive={() => setActiveviewId(item.id)}
-                className={`service-nav-item ${
-                  activeviewId === item.id ? 'active' : ''
-                }`}
+                className={`service-nav-item ${activeviewId === item.id ? 'active' : ''}`}
                 to={`service_${item.id}`}
                 spy={true}
                 smooth={true}
@@ -95,7 +149,6 @@ const Service = ({ services, data = [] }: any) => {
               </ScrollLink>
             ))}
           </nav>
-          {/* Get Free Quote Sidebar removed as per request */}
         </div>
 
         {/* Service Content */}
@@ -122,9 +175,7 @@ const Service = ({ services, data = [] }: any) => {
                   <a
                     href={`/service/${value?.url_product_name}`}
                     key={index}
-                    className={`service-product-card ${
-                      !value.image_url ? 'hidden' : ''
-                    }`}
+                    className={`service-product-card ${!value.image_url ? 'hidden' : ''}`}
                   >
                     {value.image_url && (
                       <>

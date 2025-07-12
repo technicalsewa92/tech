@@ -29,7 +29,7 @@ const Locations = async () => {
 
   return (
     <>
-      <div className=" border border-solid border-white font-semibold text-[12px] md:text-base leading-[19px] text-[#FFF] font-Roboto text-center bg-primary shadow-xl max-w-[300px] flex justify-center items-center px-[40px] h-[43px] absolute left-[50%] tranform translate-x-[-50%] top-[-4%] md:top-[-9%] rounded-md">
+      <div className="font-bold text-[14px] md:text-lg leading-[19px] text-[#FFF] font-Roboto text-left md:text-center mb-2">
         We Are Available in
       </div>
       {/* link of location */}
@@ -39,12 +39,7 @@ const Locations = async () => {
             {allLocation.map((place: any) => (
               <Link
                 key={place?.id}
-                href={{
-                  pathname: `/location/technicalsewa-service-center-${place?.location
-                    ?.toLowerCase()
-                    .split(' ')
-                    .join('-')} `,
-                }}
+                href="https://maps.app.goo.gl/Amw1dkqJgrt3ijNh8"
                 className="hover:underline whitespace-nowrap"
                 target="_blank"
               >

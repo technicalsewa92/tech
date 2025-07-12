@@ -262,7 +262,10 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
           <Link className="hover:text-primary text-sm" href="/professionals">
             Professionals
           </Link>
-          <Link className="hover:text-primary text-sm" href="/spareparts">
+          <Link
+            className="hover:text-primary text-sm"
+            href="https://www.technicalsewa.com/spareparts"
+          >
             Spare Parts
           </Link>
 
