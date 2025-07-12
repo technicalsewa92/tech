@@ -119,7 +119,7 @@ const SlideCard = ({ length, data, top }: any) => {
                 />
               </div>
 
-              <div className="flex flex-col items-start text-left space-y-2 flex-1 px-4 py-4 w-full">
+              <div className="flex flex-col items-start text-left space-y-2 flex-1 px-2 py-2 md:px-4 md:py-4 w-full">
                 <h3 className="service-card-title-compact text-lg md:text-xl font-extrabold line-clamp-2 text-[#2176ae] mb-1">
                   {ele?.product_name}
                 </h3>

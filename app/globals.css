@@ -771,11 +771,17 @@ h4 {
 /* Ensure consistent heights for service cards */
 .service-card,
 .service-card-compact {
-  min-height: 245px !important;
-  max-height: 140px;
+  min-height: 170px !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .service-card,
+  .service-card-compact {
+    min-height: 245px !important;
+  }
 }
 
 /* Component spacing utilities to prevent overlap */

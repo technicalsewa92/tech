@@ -290,27 +290,41 @@ const Search = ({ isTopNav, data }: { isTopNav?: boolean; data?: any }) => {
 
       {/* Popular searches below search bar, above call to actions */}
       <div className="flex flex-wrap items-center gap-2 mt-3 mb-0 justify-center">
-        <span className="text-gray-700 font-medium">Popular searches:</span>
+        <span className="text-gray-700 font-medium">Popular services:</span>
+        <button
+          type="button"
+          className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
+          onClick={() => setSearchText('Washing Machine ')}
+        >
+          Washing Machine
+        </button>
+        <button
+          type="button"
+          className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
+          onClick={() => setSearchText('Inverter')}
+        >
+          Inverter
+        </button>
+        <button
+          type="button"
+          className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
+          onClick={() => setSearchText('TV')}
+        >
+          TV
+        </button>
+        <button
+          type="button"
+          className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
+          onClick={() => setSearchText('AC')}
+        >
+          AC
+        </button>
         <button
           type="button"
           className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
           onClick={() => setSearchText('Electrician')}
         >
           Electrician
-        </button>
-        <button
-          type="button"
-          className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
-          onClick={() => setSearchText('Plumber')}
-        >
-          Plumber
-        </button>
-        <button
-          type="button"
-          className="px-3 py-1 rounded-full bg-gray-100 hover:bg-[#2591b2]/10 text-gray-800 text-sm font-medium"
-          onClick={() => setSearchText('AC Installation')}
-        >
-          AC Installation
         </button>
       </div>
     </div>

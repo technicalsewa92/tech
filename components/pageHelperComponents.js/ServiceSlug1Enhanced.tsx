@@ -93,7 +93,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
         </div>
 
         {/* Hero Content */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 overflow-hidden safe-area-padding">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:py-16 lg:py-24 overflow-hidden safe-area-padding">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="text-white space-y-3 sm:space-y-4 lg:space-y-6 order-2 lg:order-1">
@@ -216,7 +216,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                   alt={serviceData?.title}
                   width={600}
                   height={400}
-                  className="w-full h-64 sm:h-80 lg:h-96 object-cover"
+                  className="w-full h-40 sm:h-80 lg:h-96 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
