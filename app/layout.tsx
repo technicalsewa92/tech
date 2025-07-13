@@ -15,25 +15,35 @@ import { logger, performanceLogger } from '@/lib/logger';
 import { fetchLayoutData } from '@/lib/api';
 import { getAssetUrl, CRITICAL_ASSETS } from '@/lib/cdn';
 
-// Only load required Inter font weights/styles for optimization
+// Optimized font loading - only load required weights
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '500', '700'], // Only load regular, medium, bold
+  weight: ['400', '500', '700'], // Reduced from all weights to only essential ones
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
-// Cache for API responses to avoid repeated calls
-let servicesCache: any[] | null = null;
-let trainingCategoriesCache: any[] | null = null;
+// Enhanced caching with TTL (Time To Live)
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+let servicesCache: { data: any[]; timestamp: number } | null = null;
+let trainingCategoriesCache: { data: any[]; timestamp: number } | null = null;
+
+// Cache validation function
+function isCacheValid(
+  cache: { data: any[]; timestamp: number } | null
+): boolean {
+  return !!cache && Date.now() - cache.timestamp < CACHE_TTL;
+}
 
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // ✅ Fetch services with improved error handling and performance monitoring
+  // Optimized services fetching with better caching
   let services: any[] = [];
-  if (!servicesCache) {
+  if (!isCacheValid(servicesCache)) {
     const fallbackServices = [
       { brand_id: '1', brand_name: 'Samsung', brand_slug: 'samsung' },
       { brand_id: '2', brand_name: 'LG', brand_slug: 'lg' },
@@ -63,22 +73,22 @@ export default async function RootLayout({
         services = result.data;
       }
 
-      servicesCache = services; // Cache the result
+      servicesCache = { data: services, timestamp: Date.now() };
     } catch (error) {
       logger.error(
         'Critical error in services fetch:',
         error instanceof Error ? error.message : 'Unknown error'
       );
       services = fallbackServices;
-      servicesCache = services;
+      servicesCache = { data: services, timestamp: Date.now() };
     }
   } else {
-    services = servicesCache;
+    services = servicesCache!.data;
   }
 
-  // Fetching training categories with error handling and caching
+  // Optimized training categories fetching
   let trainingCategories: any[] = [];
-  if (!trainingCategoriesCache) {
+  if (!isCacheValid(trainingCategoriesCache)) {
     const fallbackCategories = [
       {
         id: '1',
@@ -110,27 +120,33 @@ export default async function RootLayout({
       );
 
       trainingCategories = result.data || fallbackCategories;
-      trainingCategoriesCache = trainingCategories;
+      trainingCategoriesCache = {
+        data: trainingCategories,
+        timestamp: Date.now(),
+      };
     } catch (error) {
       logger.warn(
         'Training categories API error:',
         error instanceof Error ? error.message : 'Unknown error'
       );
       trainingCategories = fallbackCategories;
-      trainingCategoriesCache = trainingCategories;
+      trainingCategoriesCache = {
+        data: trainingCategories,
+        timestamp: Date.now(),
+      };
     }
   } else {
-    trainingCategories = trainingCategoriesCache;
+    trainingCategories = trainingCategoriesCache!.data;
   }
-
-  // Using the `usePathname` hook to generate the canonical link
 
   return (
     <html lang="en">
       <head>
-        {/* DNS Prefetch for better performance */}
+        {/* Optimized DNS prefetch and preconnect */}
         <link rel="dns-prefetch" href="//www.technicalsewa.com" />
-        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
         <link
           rel="preconnect"
           href="https://www.technicalsewa.com"
@@ -138,11 +154,16 @@ export default async function RootLayout({
         />
         <link
           rel="preconnect"
-          href="https://cdn.jsdelivr.net"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
 
-        {/* Favicon and App Icons */}
+        {/* Optimized favicon and app icons */}
         <link
           rel="icon"
           href={
@@ -170,25 +191,29 @@ export default async function RootLayout({
           href={getAssetUrl('/assets/favlogo.png')}
         />
 
-        {/* Preload critical assets from CDN */}
+        {/* Preload critical assets only in production */}
         {process.env.NODE_ENV === 'production' &&
-          CRITICAL_ASSETS.map(asset => (
-            <link
-              key={asset}
-              rel="preload"
-              href={getAssetUrl(asset)}
-              as={
-                asset.endsWith('.css')
-                  ? 'style'
-                  : asset.endsWith('.js')
-                    ? 'script'
-                    : 'image'
-              }
-              crossOrigin="anonymous"
-            />
-          ))}
+          CRITICAL_ASSETS.slice(0, 5).map(
+            (
+              asset // Limit to 5 most critical assets
+            ) => (
+              <link
+                key={asset}
+                rel="preload"
+                href={getAssetUrl(asset)}
+                as={
+                  asset.endsWith('.css')
+                    ? 'style'
+                    : asset.endsWith('.js')
+                      ? 'script'
+                      : 'image'
+                }
+                crossOrigin="anonymous"
+              />
+            )
+          )}
 
-        {/* PWA Meta Tags */}
+        {/* Optimized PWA Meta Tags */}
         <meta name="theme-color" content="#1e40af" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
@@ -196,10 +221,8 @@ export default async function RootLayout({
           content="black-translucent"
         />
         <meta name="apple-mobile-web-app-title" content="Technical Sewa" />
-        {/* PWA Manifest - Temporarily disabled to prevent install prompts */}
-        {/* <link rel="manifest" href="/manifest.json" /> */}
 
-        {/* Additional SEO Meta Tags */}
+        {/* Enhanced SEO Meta Tags */}
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -207,7 +230,7 @@ export default async function RootLayout({
         <meta name="format-detection" content="telephone=no" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
-        {/* Open Graph base image */}
+        {/* Optimized Open Graph */}
         <meta
           property="og:image"
           content={getAssetUrl('/assets/ts-final-logo.png')}
@@ -215,32 +238,20 @@ export default async function RootLayout({
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Technical Sewa" />
 
-        {/* Preconnect for faster critical resource fetching */}
-        <link
-          rel="preconnect"
-          href="https://www.technicalsewa.com"
-          crossOrigin="anonymous"
-        />
-        {/* Optionally, preload main CSS if you know the path: */}
-        {/* <link rel="preload" as="style" href="/path/to/main.css" /> */}
-
         {/* Canonical Provider */}
         <CanonicalProvider />
       </head>
       <body className={inter.className}>
-        {/* Google Analytics */}
+        {/* Optimized analytics loading */}
         <GoogleAnalytics />
 
         {/* Web Vitals Monitoring */}
         <WebVitals />
 
-        {/* Service Worker for PWA - Temporarily disabled to remove install prompts */}
-        {/* <ServiceWorkerProvider /> */}
-
         {/* Error Boundary and React Query Provider */}
         <ErrorBoundary>
           <ReactQueryProvider>
-            {/* Components */}
+            {/* Optimized component loading */}
             <Nav services={services} trainingCategories={trainingCategories} />
             {children}
             <Footer />

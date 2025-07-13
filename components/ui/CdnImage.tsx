@@ -1,22 +1,19 @@
 import Image, { ImageProps } from 'next/image';
-import { getAssetUrl } from '@/lib/cdn';
 
 interface CdnImageProps extends Omit<ImageProps, 'src'> {
   src: string;
-  useCdn?: boolean;
+  useCdn?: boolean; // Kept for backward compatibility but ignored
 }
 
 /**
- * CdnImage component that automatically uses jsDelivr CDN for images in production
- * Falls back to local images in development
+ * CdnImage component - CDN functionality disabled
+ * Now just returns a regular Next.js Image component
  */
 export default function CdnImage({
   src,
-  useCdn = true,
+  useCdn = true, // Ignored since CDN is disabled
   ...props
 }: CdnImageProps) {
-  // Determine the source URL (CDN or local)
-  const imageUrl = useCdn ? getAssetUrl(src) : src;
-
-  return <Image src={imageUrl} {...props} />;
+  // Always use local path since CDN is disabled
+  return <Image src={src} {...props} />;
 }

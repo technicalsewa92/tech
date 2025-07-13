@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { getAssetUrl } from '@/lib/cdn';
 
 interface CdnScriptProps {
   src: string;
@@ -12,7 +11,8 @@ interface CdnScriptProps {
 }
 
 /**
- * Component to load scripts from CDN in client components
+ * Component to load scripts in client components
+ * CDN functionality disabled - uses local paths only
  */
 export default function CdnScript({
   src,
@@ -23,7 +23,7 @@ export default function CdnScript({
 }: CdnScriptProps) {
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = getAssetUrl(src);
+    script.src = src; // Use local path directly
     script.async = async;
     script.defer = defer;
     if (id) script.id = id;
