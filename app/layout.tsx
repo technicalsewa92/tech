@@ -1,5 +1,4 @@
 import './globals.css';
-import '../styles/brand-colors.css';
 import { Inter } from 'next/font/google';
 import AutoScrollToTop from '@/components/scrollToTop';
 import Footer from '@/components/footer/Footer';

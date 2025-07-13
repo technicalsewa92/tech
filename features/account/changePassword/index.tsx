@@ -1,16 +1,16 @@
-"use client";
-import useAuthStore from "@/store/useAuthStore";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+'use client';
+import useAuthStore from '@/store/useAuthStore';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 export default function ChangePasswordForm() {
   const { user, signout, isLoading, isAuthenticated } = useAuthStore();
   const { push } = useRouter();
   const [input, setInput] = useState({
-    old_password: "",
-    new_password: "",
+    old_password: '',
+    new_password: '',
   });
 
   const handleChange = (e: any) => {
@@ -21,27 +21,27 @@ export default function ChangePasswordForm() {
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidForm) {
-      toast("Please fill all the fields");
+      toast('Please fill all the fields');
       return;
     }
     const data = new FormData();
     // params: old_password , new_password,type,id
-    data.append("id", `${user?.id}`);
-    data.append("type", `${user?.type}`);
-    data.append("old_password", input.old_password);
-    data.append("new_password", input.new_password);
+    data.append('id', `${user?.id}`);
+    data.append('type', `${user?.type}`);
+    data.append('old_password', input.old_password);
+    data.append('new_password', input.new_password);
     await axios
       .post(
         `https://www.technicalsewa.com/techsewa/publiccontrol/changePassword`,
         data
       )
       .then(({ data }) => {
-        if ((!data?.status || data?.status === "False") && data?.msg) {
+        if ((!data?.status || data?.status === 'False') && data?.msg) {
           toast(`❌ ${data?.msg}`);
-        } else if (data?.status === "Success") {
+        } else if (data?.status === 'Success') {
           toast(`Password changed successfully!`);
           signout();
-          window.location.href = "/login";
+          window.location.href = '/login';
         }
       });
   };
@@ -50,7 +50,7 @@ export default function ChangePasswordForm() {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      window.location.href = "/login";
+      window.location.href = '/login';
     }
   }, [isLoading, isAuthenticated]);
 

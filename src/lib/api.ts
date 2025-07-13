@@ -5,6 +5,326 @@ export async function fetchClient(url: string, options = {}) {
   const response = await fetch(`${baseUrl}${url}`, mergedOptions as any);
   return response.json();
 }
+
+// ✅ React Query hooks for client-side data fetching
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+
+// ✅ API endpoints for React Query hooks
+export const API_ENDPOINTS = {
+  // Auth
+  LOGIN: '/techsewa/masterconfig/publiclogin/signinlate',
+  GOOGLE_LOGIN: '/techsewa/masterConfig/publiclogin/SigninbyGtoken',
+  CRM_LOGIN: '/techsewa/masterconfig/publiclogin/signinlate',
+
+  // User Profile
+  UPDATE_CUSTOMER: '/techsewa/publiccontrol/updateCustomer',
+  UPDATE_TECHNICIAN: '/techsewa/publiccontrol/updateTechnician',
+
+  // Complaints
+  LOG_COMPLAINT: '/techsewa/publicControl/logComplain',
+  GET_COMPLAINTS: '/techsewa/publiccontrol/getComplaintsByCustomer',
+
+  // Orders & Sales
+  GET_SALES_BY_CUSTOMER:
+    '/techsewa/publiccontrol/publicsales/getsalesbyCustomer',
+
+  // Services & Products
+  GET_SERVICES: '/techsewa/masterconfig/publicmasterconfig/getSliderListpop',
+  GET_SERVICES_POP:
+    '/techsewa/masterconfig/publicmasterconfig/getSliderListpop1',
+  GET_PRODUCT_CATEGORY: '/techsewa/publicControl/GetProductcategiryByProduct',
+  GET_SERVICES_BY_CATEGORY:
+    '/techsewa/publicControl/getServicesByProductCategory',
+
+  // Footer & Stats
+  GET_TOTAL_FOOTER: '/techsewa/publiccontrol/getGetTotalFooter',
+
+  // Callback & Reviews
+  CALLBACK_REQUEST: '/techsewa/publiccontrol/publicreview/getcallbackrequest',
+
+  // Training
+  GET_TRAININGS:
+    '/techsewa/publiccontrol/publicmasterconfig/gettrainingDetails',
+  GET_TRAINING_CATEGORIES:
+    '/techsewa/publiccontrol/publicmasterconfig/gettrainingcategories',
+
+  // Blog
+  GET_BLOG_BY_ID:
+    '/techsewa/publiccontrol/publicmasterconfig/getblogDetailsbyid',
+  GET_BLOGS_BY_CATEGORY:
+    '/techsewa/publiccontrol/publicmasterconfig/getblogDetailsbyCatid',
+
+  // SEO
+  GET_SEO_CONTENT: '/techsewa/publiccontrol/publicmasterconfig/getSeoContent',
+} as const;
+
+// ✅ React Query hooks for client-side data fetching
+export const useServices = () => {
+  return useQuery({
+    queryKey: ['services'],
+    queryFn: async () => {
+      const response = await api.get(API_ENDPOINTS.GET_SERVICES);
+      return response.data;
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+export const useServicesPop = () => {
+  return useQuery({
+    queryKey: ['services-pop'],
+    queryFn: async () => {
+      const response = await api.get(API_ENDPOINTS.GET_SERVICES_POP);
+      return response.data;
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+export const useTotalFooter = () => {
+  return useQuery({
+    queryKey: ['total-footer'],
+    queryFn: async () => {
+      const response = await api.get(API_ENDPOINTS.GET_TOTAL_FOOTER);
+      return response.data;
+    },
+    staleTime: 10 * 60 * 1000, // 10 minutes
+    gcTime: 60 * 60 * 1000, // 1 hour
+  });
+};
+
+export const useCustomerSales = (customerId: string | undefined) => {
+  return useQuery({
+    queryKey: ['customer-sales', customerId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (customerId) {
+        formData.append('cust_id', customerId);
+      }
+      const response = await api.post(
+        API_ENDPOINTS.GET_SALES_BY_CUSTOMER,
+        formData
+      );
+      return response.data;
+    },
+    enabled: !!customerId,
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+  });
+};
+
+export const useCustomerComplaints = (customerId: string | undefined) => {
+  return useQuery({
+    queryKey: ['customer-complaints', customerId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (customerId) {
+        formData.append('cust_id', customerId);
+      }
+      const response = await api.post(API_ENDPOINTS.GET_COMPLAINTS, formData);
+      return response.data;
+    },
+    enabled: !!customerId,
+    staleTime: 2 * 60 * 1000, // 2 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+  });
+};
+
+export const useProductCategory = (productId: string | undefined) => {
+  return useQuery({
+    queryKey: ['product-category', productId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (productId) {
+        formData.append('product_id', productId);
+      }
+      const response = await api.post(
+        API_ENDPOINTS.GET_PRODUCT_CATEGORY,
+        formData
+      );
+      return response.data;
+    },
+    enabled: !!productId,
+    staleTime: 10 * 60 * 1000, // 10 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+export const useServicesByCategory = (brandId: string | undefined) => {
+  return useQuery({
+    queryKey: ['services-by-category', brandId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (brandId) {
+        formData.append('brand_id', brandId);
+      }
+      const response = await api.post(
+        API_ENDPOINTS.GET_SERVICES_BY_CATEGORY,
+        formData
+      );
+      return response.data;
+    },
+    enabled: !!brandId,
+    staleTime: 10 * 60 * 1000, // 10 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+export const useTrainingData = (trainingId: string | undefined) => {
+  return useQuery({
+    queryKey: ['training-data', trainingId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (trainingId) {
+        formData.append('training_id', trainingId);
+      }
+      const response = await api.post(API_ENDPOINTS.GET_TRAININGS, formData);
+      return response.data;
+    },
+    enabled: !!trainingId,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+export const useBlogData = (blogId: string | undefined) => {
+  return useQuery({
+    queryKey: ['blog-data', blogId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (blogId) {
+        formData.append('id', blogId);
+      }
+      const response = await api.post(API_ENDPOINTS.GET_BLOG_BY_ID, formData);
+      return response.data;
+    },
+    enabled: !!blogId,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+export const useBlogsByCategory = (categoryId: string | undefined) => {
+  return useQuery({
+    queryKey: ['blogs-by-category', categoryId],
+    queryFn: async () => {
+      const formData = new FormData();
+      if (categoryId) {
+        formData.append('id', categoryId);
+      }
+      const response = await api.post(
+        API_ENDPOINTS.GET_BLOGS_BY_CATEGORY,
+        formData
+      );
+      return response.data;
+    },
+    enabled: !!categoryId,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 30 * 60 * 1000, // 30 minutes
+  });
+};
+
+// ✅ Mutations for data updates
+export const useLoginMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (credentials: { username: string; password: string }) => {
+      const formData = new FormData();
+      formData.append('username', credentials.username);
+      formData.append('password', credentials.password);
+      const response = await api.post(API_ENDPOINTS.LOGIN, formData);
+      return response.data;
+    },
+    onSuccess: () => {
+      // Invalidate user-related queries
+      queryClient.invalidateQueries({ queryKey: ['customer-sales'] });
+      queryClient.invalidateQueries({ queryKey: ['customer-complaints'] });
+    },
+  });
+};
+
+export const useGoogleLoginMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (user: { email?: string; accessToken?: string }) => {
+      const formData = new FormData();
+      formData.append('email', user.email ?? '');
+      formData.append('token', user.accessToken?.split('.')[0] ?? '');
+      const response = await api.post(API_ENDPOINTS.GOOGLE_LOGIN, formData);
+      return response.data;
+    },
+    onSuccess: () => {
+      // Invalidate user-related queries
+      queryClient.invalidateQueries({ queryKey: ['customer-sales'] });
+      queryClient.invalidateQueries({ queryKey: ['customer-complaints'] });
+    },
+  });
+};
+
+export const useUpdateProfileMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (data: {
+      formData: FormData;
+      userType: 'Customer' | 'Technician';
+    }) => {
+      const endpoint =
+        data.userType === 'Technician'
+          ? API_ENDPOINTS.UPDATE_TECHNICIAN
+          : API_ENDPOINTS.UPDATE_CUSTOMER;
+      const response = await api.post(endpoint, data.formData);
+      return response.data;
+    },
+    onSuccess: () => {
+      // Invalidate user-related queries
+      queryClient.invalidateQueries({ queryKey: ['customer-sales'] });
+      queryClient.invalidateQueries({ queryKey: ['customer-complaints'] });
+    },
+  });
+};
+
+export const useLogComplaintMutation = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (complaintData: FormData) => {
+      const response = await api.post(
+        API_ENDPOINTS.LOG_COMPLAINT,
+        complaintData
+      );
+      return response.data;
+    },
+    onSuccess: () => {
+      // Invalidate complaints queries
+      queryClient.invalidateQueries({ queryKey: ['customer-complaints'] });
+    },
+  });
+};
+
+export const useCallbackRequestMutation = () => {
+  return useMutation({
+    mutationFn: async (data: {
+      name: string;
+      mobile: string;
+      email: string;
+      query: string;
+    }) => {
+      const formData = new FormData();
+      formData.append('cust_name', data.name);
+      formData.append('cust_mobile', data.mobile);
+      formData.append('cust_email', data.email);
+      formData.append('cust_query', data.query);
+      const response = await api.post(API_ENDPOINTS.CALLBACK_REQUEST, formData);
+      return response.data;
+    },
+  });
+};
+
 // --- Child Service API Utilities ---
 
 // 1. Fetch all services/products for a parent category

@@ -1273,3 +1273,187 @@ h4 {
 .install-btn:hover {
   background: #f3f4f6;
 }
+
+/* === MERGED FROM styles/main.css & styles/brand-colors.css === */
+
+/* Brand Colors */
+:root {
+  --brand-primary: #2591b2;
+  --brand-primary-dark: #1d7a95;
+  --brand-primary-light: #4db3d1;
+  --brand-primary-lighter: #7bc5db;
+  --brand-primary-lightest: #b8dde8;
+  --brand-gradient: linear-gradient(
+    90deg,
+    hsla(194, 66%, 42%, 1) 0%,
+    hsla(176, 73%, 88%, 1) 100%
+  );
+}
+.bg-hero-gradient,
+.bg-feature-gradient,
+.bg-stats-gradient,
+.bg-brand-gradient {
+  background: var(--brand-gradient);
+}
+.text-brand-primary {
+  color: var(--brand-primary);
+}
+.bg-brand-primary {
+  background-color: var(--brand-primary);
+}
+.border-brand-primary {
+  border-color: var(--brand-primary);
+}
+.hover\:bg-brand-primary:hover {
+  background-color: var(--brand-primary);
+}
+.hover\:text-brand-primary:hover {
+  color: var(--brand-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary),
+    var(--brand-primary-dark)
+  );
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    var(--brand-primary-dark),
+    var(--brand-primary)
+  );
+}
+@keyframes pulse-glow-brand {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(37, 145, 178, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(37, 145, 178, 0.6);
+  }
+}
+.pulse-glow-brand {
+  animation: pulse-glow-brand 2s ease-in-out infinite;
+}
+.btn-brand-primary {
+  background-color: var(--brand-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-brand-primary:hover {
+  background-color: var(--brand-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 145, 178, 0.3);
+}
+.btn-brand-outline {
+  background-color: transparent;
+  color: var(--brand-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--brand-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-brand-outline:hover {
+  background-color: var(--brand-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+.card-brand-hover {
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+.card-brand-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(37, 145, 178, 0.15);
+  border-color: var(--brand-primary-light);
+}
+@keyframes spin-brand {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinner-brand {
+  border: 3px solid var(--brand-primary-lightest);
+  border-top: 3px solid var(--brand-primary);
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  animation: spin-brand 1s linear infinite;
+}
+
+/* Blog Enhanced Styles (if not already present) */
+@import '../styles/blog-enhanced.css';
+
+/* Unique rules from main.css (not already in globals.css) */
+.whatsapp_float {
+  position: fixed;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 2.5rem;
+  right: 1.5rem;
+  background-color: #22c55e;
+  color: white;
+  border-radius: 9999px;
+  font-size: 1.875rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+@media (max-width: 767px) {
+  .whatsapp_float {
+    width: 2.5rem;
+    height: 2.5rem;
+    bottom: 1.25rem;
+    left: 1.25rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Fade-in animation utility */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Text truncation utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .transition-all {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* End of merged content */

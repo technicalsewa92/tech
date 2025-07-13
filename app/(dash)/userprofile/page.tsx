@@ -1,16 +1,13 @@
-import Nav from "@/components/Nav";
-import Footer from "@/components/footer/Footer";
-import UserProfile from "@/features/account/profile";
+import Nav from '@/components/Nav';
+import Footer from '@/components/footer/Footer';
+import UserProfile from '@/features/account/profile';
 const page = async () => {
   return (
     <>
-    
       <UserProfile />
-
     </>
   );
 };
-
 
 export default page;
 

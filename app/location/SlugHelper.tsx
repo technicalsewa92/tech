@@ -1,7 +1,7 @@
-import Categories from "@/components/repair/Categories";
-import React from "react";
-import parse from "html-react-parser";
-const SlugHelper = (props:any) => {
+import Categories from '@/components/repair/Categories';
+import React from 'react';
+import parse from 'html-react-parser';
+const SlugHelper = (props: any) => {
   return (
     <>
       <div className="text-center md:px-8 px-3 mb-8">
@@ -10,11 +10,8 @@ const SlugHelper = (props:any) => {
           {props?.location.toUpperCase()}
         </h1>
         <div className="text-left font-normal whitespace-pre-wrap blog-content">
-          {props?.formatedDescription
-            && 
-            parse(props?.formatedDescription || "")
-          
-          }
+          {props?.formatedDescription &&
+            parse(props?.formatedDescription || '')}
         </div>
       </div>
     </>

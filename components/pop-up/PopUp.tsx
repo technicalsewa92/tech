@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ImageWithFallback from '../ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 interface Banner {
   id: string;
   image_type_code: string;

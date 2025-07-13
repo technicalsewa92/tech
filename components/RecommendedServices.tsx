@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { fetchServerClient } from '@/lib/api';
 import { logger } from '@/lib/logger';
-import ImageWithFallback from './ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 
 interface Service {
   brand_id: string;

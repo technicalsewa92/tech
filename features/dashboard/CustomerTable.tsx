@@ -1,26 +1,23 @@
-import React, { useState } from "react"
-import Link from "next/link"
-import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
-import ReviewDialog from "./ReviewModel"
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table';
+import ReviewDialog from './ReviewModel';
 
 export const CustomTable = ({
   data,
   status,
 }: {
-  data: any
-  status: string
+  data: any;
+  status: string;
 }) => {
-  const reversedData = [...data].reverse()
+  const reversedData = [...data].reverse();
   const [dialogOpen, setDialogOpen] = useState(false);
 
   const handleOpenDialog = () => setDialogOpen(true);
   const handleCloseDialog = () => setDialogOpen(false);
   return (
     <div className="bg-white">
-      <ReviewDialog
-        open={dialogOpen}
-        handleClose={handleCloseDialog}
-      />
+      <ReviewDialog open={dialogOpen} handleClose={handleCloseDialog} />
       <Table className="bg-white text-sm">
         <TableBody>
           {reversedData?.map((value: any, index: number) => (
@@ -30,8 +27,10 @@ export const CustomTable = ({
             >
               <TableCell className="text-sm">
                 <div className="flex flex-col gap-1">
-                  <Link href={`/order-history/${value.salesId}?status=${status}`}>
-                    Order ID:{" "}
+                  <Link
+                    href={`/order-history/${value.salesId}?status=${status}`}
+                  >
+                    Order ID:{' '}
                     <span className="text-blue-600">{value.salesNum}</span>
                   </Link>
                   <div>
@@ -48,19 +47,19 @@ export const CustomTable = ({
               <TableCell className={`text-center hidden md:flex`}>
                 <span
                   className={`p-2 rounded-lg ${
-                    status === "Confirm"
-                      ? "bg-blue-300 text-white"
-                      : status === "Pending"
-                        ? "bg-yellow-600 text-white"
-                        : status === "Processing"
-                          ? "bg-orange-500 text-white"
-                          : status === "OntheWay"
-                            ? "bg-purple-800 text-white"
-                            : status === "Delivered"
-                              ? "bg-green-500 text-white"
-                              : status === "Cancelled"
-                                ? "bg-red-600 text-white"
-                                : "bg-black text-white"
+                    status === 'Confirm'
+                      ? 'bg-blue-300 text-white'
+                      : status === 'Pending'
+                        ? 'bg-yellow-600 text-white'
+                        : status === 'Processing'
+                          ? 'bg-orange-500 text-white'
+                          : status === 'OntheWay'
+                            ? 'bg-purple-800 text-white'
+                            : status === 'Delivered'
+                              ? 'bg-green-500 text-white'
+                              : status === 'Cancelled'
+                                ? 'bg-red-600 text-white'
+                                : 'bg-black text-white'
                   }`}
                 >
                   {status}
@@ -88,5 +87,5 @@ export const CustomTable = ({
         </TableBody>
       </Table>
     </div>
-  )
-}
+  );
+};

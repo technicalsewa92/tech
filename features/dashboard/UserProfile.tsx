@@ -1,13 +1,13 @@
 // "use client"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
+// import { Input } from '@/components/ui/input'
+// import { Label } from '@/components/ui/label'
 // import Image from "next/image"
 // import { useEffect, useState } from "react"
 // import user from "../../public/dummy-user.png"
 // import Link from "next/link"
 // import { useDispatch, useSelector } from "react-redux"
-// import { fetchUserProfile } from "@/store/userSlice"
-// import { AppDispatch, RootState } from "@/store/store"
+// import { fetchUserProfile } from '@/store/userSlice'
+// import { AppDispatch, RootState } from '@/store/store'
 
 // interface CustomerData {
 //   first_name?: string

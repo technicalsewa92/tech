@@ -1,5 +1,5 @@
-import { api } from "@/lib/api";
-import React, { useEffect, useState } from "react";
+import { api } from '@/lib/api';
+import React, { useEffect, useState } from 'react';
 
 interface Iprops {
   onSearch: (q: any) => void;
@@ -11,16 +11,16 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
   const [productCategories, setProductCategories] = useState<any[]>([]);
   const getFilterPropsData = async () => {
     const { data: servicesData } = await api.get(
-      "/techsewa/masterconfig/publicmasterconfig/getSliderListpop"
+      '/techsewa/masterconfig/publicmasterconfig/getSliderListpop'
     );
     setServiceData(servicesData?.brands);
   };
 
   const getProductCategory = async (productId: string) => {
     const fdata = new FormData();
-    fdata.append("product_id", productId);
+    fdata.append('product_id', productId);
     const { data: productCategories } = await api.post(
-      "/techsewa/publicControl/GetProductcategiryByProduct",
+      '/techsewa/publicControl/GetProductcategiryByProduct',
       fdata
     );
     setProductCategories(productCategories);
@@ -38,11 +38,11 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
     const { name, value } = e.target;
     const queryFormData = { ...formData, [name]: value };
     // reset product/product category on service change
-    if (name === "service_category") {
+    if (name === 'service_category') {
       delete queryFormData.product;
       delete queryFormData.product_category;
     }
-    if (name === "product") {
+    if (name === 'product') {
       delete queryFormData.product;
       setProductCategories([]);
       getProductCategory(value);
@@ -78,7 +78,10 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
         <form onSubmit={handleSearchForm}>
           <div className="space-x-2 flex flex-wrap">
             <div className="flex flex-col w-[180px]">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="call_id">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="call_id"
+              >
                 Call ID
               </label>
               <input
@@ -89,9 +92,12 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
                 onChange={handleChangeField}
               />
             </div>
-           
+
             <div className="flex flex-col w-[180px]">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="customer_name">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="customer_name"
+              >
                 Name
               </label>
               <input
@@ -132,7 +138,10 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
               />
             </div> */}
             <div className="flex flex-col w-[180px]">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="phone">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="phone"
+              >
                 Phone
               </label>
               <input
@@ -161,7 +170,10 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
               </select>
             </div> */}
             <div className="flex flex-col">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="from_date">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="from_date"
+              >
                 From Date
               </label>
               <input
@@ -173,7 +185,10 @@ export default function ComplainsFilter({ onSearch, onReset }: Iprops) {
               />
             </div>
             <div className="flex flex-col">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="to_date">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="to_date"
+              >
                 To Date
               </label>
               <input

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import ImageWithFallback from './ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 import { RxCross2 } from 'react-icons/rx';
 import { IoMdStar } from 'react-icons/io';
 import StoreLocation from '@/features/account/profile/userLocation';

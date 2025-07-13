@@ -30,7 +30,12 @@ export const trackPageView = (url: string) => {
 };
 
 // Track events
-export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
+export const trackEvent = (
+  action: string,
+  category: string,
+  label?: string,
+  value?: number
+) => {
   if (typeof window !== 'undefined' && GA_MEASUREMENT_ID) {
     gtag('event', action, {
       event_category: category,
@@ -52,7 +57,11 @@ export const trackConversion = (conversionId: string, value?: number) => {
 
 // Track service requests
 export const trackServiceRequest = (serviceType: string, location?: string) => {
-  trackEvent('service_request', 'engagement', `${serviceType}_${location || 'unknown'}`);
+  trackEvent(
+    'service_request',
+    'engagement',
+    `${serviceType}_${location || 'unknown'}`
+  );
 };
 
 // Track phone calls

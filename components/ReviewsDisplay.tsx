@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import ImageWithFallback from './ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 import {
   getGoogleBusinessReviews,
   getGoogleReviewStats,
   GoogleReview,
   ReviewStats,
-} from '../lib/googleReviews';
+} from '@/lib/googleReviews';
 
 interface ReviewsDisplayProps {
   limit?: number;

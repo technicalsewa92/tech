@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import ImageWithFallback from '../../../../components/ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 import { CgDanger } from 'react-icons/cg';
 // import img from "../../../../public/dummy-user.png"
 import axios from 'axios';

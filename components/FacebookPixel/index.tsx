@@ -1,8 +1,8 @@
-"use client";
-import React, { useEffect } from "react";
-import * as pixel from "@/lib/fpixel";
-import Script from "next/script";
-import { usePathname } from "next/navigation";
+'use client';
+import React, { useEffect } from 'react';
+import * as pixel from '@/lib/fpixel';
+import Script from 'next/script';
+import { usePathname } from 'next/navigation';
 
 export default function FacebookPixel() {
   const [loaded, setLoaded] = React.useState(false);

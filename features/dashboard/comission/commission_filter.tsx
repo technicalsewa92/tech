@@ -1,5 +1,5 @@
-import { api } from "@/lib/api";
-import React, { useEffect, useState } from "react";
+import { api } from '@/lib/api';
+import React, { useEffect, useState } from 'react';
 
 interface Iprops {
   onSearch: (q: any) => void;
@@ -7,28 +7,28 @@ interface Iprops {
 }
 export default function CommissionFilter({ onSearch, onReset }: Iprops) {
   const [formData, setFormData] = useState<any>({});
-//   const [serviceData, setServiceData] = useState([]);
+  //   const [serviceData, setServiceData] = useState([]);
   const [productCategories, setProductCategories] = useState<any[]>([]);
-//   const getFilterPropsData = async () => {
-//     const { data: servicesData } = await api.get(
-//       "/techsewa/publiccontrol/publicaccount/getDealerReceipt"
-//     );
-//     setServiceData(servicesData?.brands);
-//   };
+  //   const getFilterPropsData = async () => {
+  //     const { data: servicesData } = await api.get(
+  //       "/techsewa/publiccontrol/publicaccount/getDealerReceipt"
+  //     );
+  //     setServiceData(servicesData?.brands);
+  //   };
 
   const getProductCategory = async (productId: string) => {
     const fdata = new FormData();
-    fdata.append("product_id", productId);
+    fdata.append('product_id', productId);
     const { data: productCategories } = await api.post(
-      "/techsewa/publiccontrol/publicaccount/getDealerReceipt",
+      '/techsewa/publiccontrol/publicaccount/getDealerReceipt',
       fdata
     );
     setProductCategories(productCategories);
   };
 
-//   useEffect(() => {
-//     getFilterPropsData();
-//   }, []);
+  //   useEffect(() => {
+  //     getFilterPropsData();
+  //   }, []);
 
   const handleChangeField = (
     e:
@@ -38,11 +38,11 @@ export default function CommissionFilter({ onSearch, onReset }: Iprops) {
     const { name, value } = e.target;
     const queryFormData = { ...formData, [name]: value };
     // reset product/product category on service change
-    if (name === "service_category") {
+    if (name === 'service_category') {
       delete queryFormData.product;
       delete queryFormData.product_category;
     }
-    if (name === "product") {
+    if (name === 'product') {
       delete queryFormData.product;
       setProductCategories([]);
       getProductCategory(value);
@@ -60,42 +60,41 @@ export default function CommissionFilter({ onSearch, onReset }: Iprops) {
   };
 
   const uniqueServiceCatList = new Set();
-//   const serviceCatList = serviceData.filter((s: any) => {
-//     if (!uniqueServiceCatList.has(s.brand_name)) {
-//       uniqueServiceCatList.add(s.brand_name);
-//       return true;
-//     }
-//     return false;
-//   });
+  //   const serviceCatList = serviceData.filter((s: any) => {
+  //     if (!uniqueServiceCatList.has(s.brand_name)) {
+  //       uniqueServiceCatList.add(s.brand_name);
+  //       return true;
+  //     }
+  //     return false;
+  //   });
 
-//   const productsList = [...serviceData]?.filter(
-//     (s: any) => +s?.brand_id === +formData?.service_category
-//   );
+  //   const productsList = [...serviceData]?.filter(
+  //     (s: any) => +s?.brand_id === +formData?.service_category
+  //   );
 
   return (
     <div>
       <div className="p-5 bg-[#f0f1f5] rounded-lg">
         <form onSubmit={handleSearchForm}>
           <div className="space-x-2 flex flex-wrap">
-            
-           
             <div className="flex flex-col w-[180px]">
-  <label className="block font-normal font-inter text-sm mb-2" htmlFor="payment_status">
-    Payment Status
-  </label>
-  <select
-    className="p-2 border h-[40px] rounded-lg text-base border-[#A3A3A3]"
-    name="paid_status"
-    id="paid_status"
-    onChange={handleChangeField}
-  >
-    <option value="1">Paid</option>
-    <option value="0">Unpaid</option>
-  </select>
-</div>
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="payment_status"
+              >
+                Payment Status
+              </label>
+              <select
+                className="p-2 border h-[40px] rounded-lg text-base border-[#A3A3A3]"
+                name="paid_status"
+                id="paid_status"
+                onChange={handleChangeField}
+              >
+                <option value="1">Paid</option>
+                <option value="0">Unpaid</option>
+              </select>
+            </div>
 
-          
-           
             {/* <div className="flex space-x-2">
               <label className="w-2/5" htmlFor="product_category">
                 Product Category
@@ -114,7 +113,10 @@ export default function CommissionFilter({ onSearch, onReset }: Iprops) {
               </select>
             </div> */}
             <div className="flex flex-col">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="from_date">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="from_date"
+              >
                 From Date
               </label>
               <input
@@ -126,7 +128,10 @@ export default function CommissionFilter({ onSearch, onReset }: Iprops) {
               />
             </div>
             <div className="flex flex-col">
-              <label className="block font-normal font-inter text-sm mb-2" htmlFor="to_date">
+              <label
+                className="block font-normal font-inter text-sm mb-2"
+                htmlFor="to_date"
+              >
                 To Date
               </label>
               <input

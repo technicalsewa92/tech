@@ -1,6 +1,6 @@
-import Nav from "@/components/Nav";
-import StandardSignUp from "@/features/authentication/signup/standard-signup";
-import React from "react";
+import Nav from '@/components/Nav';
+import StandardSignUp from '@/features/authentication/signup/standard-signup';
+import React from 'react';
 
 const page = () => {
   return (

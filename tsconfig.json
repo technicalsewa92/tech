@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2022", // ✅ Updated target
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es2021",
+    "lib": ["dom", "dom.iterable", "es2021"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,10 +21,19 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*", "./*"],
+      "@/components/*": ["./src/components/*", "./components/*"],
+      "@/lib/*": ["./src/lib/*", "./lib/*"],
+      "@/hooks/*": ["./src/hooks/*", "./hooks/*"],
+      "@/store/*": ["./src/store/*", "./store/*"],
+      "@/styles/*": ["./src/styles/*", "./styles/*"],
+      "@/utils/*": ["./src/lib/utils/*", "./utils/*"],
+      "@/types/*": ["./src/lib/types/*", "./@types/*"],
+      "@/api/*": ["./src/lib/api/*", "./axios_config/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/sitemap.xml.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

@@ -3,16 +3,23 @@
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import {
-  HiArrowRightOnRectangle,
-  HiMiniWrenchScrewdriver,
-} from 'react-icons/hi2';
-import { FaBars, FaDoorOpen, FaHome, FaTimes } from 'react-icons/fa';
-import { LiaBlogSolid } from 'react-icons/lia';
-import { BsFillPersonCheckFill, BsFillTelephoneFill } from 'react-icons/bs';
-import { MdLogin, MdOutlineHomeRepairService } from 'react-icons/md';
-import { CgProfile } from 'react-icons/cg';
-import { LuMailWarning } from 'react-icons/lu';
-import { MdModelTraining } from 'react-icons/md';
+  LogOut,
+  Wrench,
+  Menu,
+  DoorOpen,
+  Home,
+  X,
+  BookOpen,
+  UserCheck,
+  Phone,
+  LogIn,
+  Hammer,
+  User,
+  MailWarning,
+  GraduationCap,
+  ChevronDown,
+  LayoutDashboard,
+} from 'lucide-react';
 import useAuthStore from '@/store/useAuthStore';
 import Search from './Search';
 import { usePathname, useRouter } from 'next/navigation';
@@ -22,11 +29,11 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdownmenu';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avtar';
-import { IoIosArrowDown } from 'react-icons/io';
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from '@/components/ui';
 import dynamic from 'next/dynamic';
-import { MdOutlineDashboard } from 'react-icons/md';
 const NavUserDropdown = dynamic(() => import('./NavUserDropdown'), {
   ssr: false,
 });
@@ -153,7 +160,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
           title="Phonenumber"
           className="flex items-center justify-center px-1 gap-[5px] h-[40px] w-[130px] border border-[#2591B2] rounded-[4px] text-sm text-black md:hidden"
         >
-          <BsFillTelephoneFill className="text-primary" size={20} />
+          <Phone className="text-primary" size={20} />
           <p>9851201580</p>
         </a>
 
@@ -283,7 +290,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
                         IMG
                       </AvatarFallback>
                     </Avatar>
-                    <IoIosArrowDown className="text-white ml-2" />
+                    <ChevronDown className="text-white ml-2" />
                   </div>
                 </DropdownMenuTrigger>
                 {/* Dynamically loaded dropdown with MUI */}
@@ -300,13 +307,13 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
             href="tel:9851201580"
             className="flex items-center gap-2 px-4 py-2 border border-[#2591b2] rounded-md text-[#2591b2] font-semibold animate-pulse hover:bg-[#2591b2]/10 transition-colors mr-2 text-base"
           >
-            <BsFillTelephoneFill className="text-[#2591b2] text-lg" />
+            <Phone className="text-[#2591b2] text-lg" />
             9851201580
           </a>
           {!isAuthenticated ? (
             <Link className="hover:text-primary" href="/login">
               <button className="flex gap-[5px] justify-center items-center bg-primary rounded-[3px] cursor-pointer text-white px-[13px] py-[8.5px] ">
-                <HiArrowRightOnRectangle size={20} className="text-white" />
+                <LogIn size={20} className="text-white" />
                 Sign In
               </button>
             </Link>
@@ -318,9 +325,9 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
         {/* ========toggle-menu-bar-click======== */}
         <div onClick={handleNavClick} className="menu-btn md:hidden">
           {!nav ? (
-            <FaBars className="cursor-pointer text-primary" size={30} />
+            <Menu className="cursor-pointer text-primary" size={30} />
           ) : (
-            <FaTimes className="cursor-pointer text-primary" size={30} />
+            <X className="cursor-pointer text-primary" size={30} />
           )}
         </div>
 
@@ -333,7 +340,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
               className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
               href="/"
             >
-              <FaHome className="text-primary" />
+              <Home className="text-primary" />
               Home
             </a>
 
@@ -351,7 +358,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
               href="/trainings"
               className="hover:text-primary px-[14px] text-base font-normal flex items-center justify-start gap-4"
             >
-              <MdModelTraining className="text-primary" />
+              <GraduationCap className="text-primary" />
               Training
             </a>
 
@@ -395,7 +402,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
               href="/blogs"
               title="Blogs"
             >
-              <LiaBlogSolid className="text-primary" />
+              <BookOpen className="text-primary" />
               Blog
             </Link>
 
@@ -404,7 +411,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
               className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
               href="/professionals"
             >
-              <BsFillPersonCheckFill className="text-primary" />
+              <UserCheck className="text-primary" />
               Professionals
             </Link>
             <Link
@@ -412,7 +419,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
               className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
               href="/spareparts"
             >
-              <HiMiniWrenchScrewdriver className="text-primary" />
+              <Wrench className="text-primary" />
               Spare Parts
             </Link>
 
@@ -423,7 +430,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
                   className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
                   href="/service"
                 >
-                  <MdOutlineHomeRepairService className="text-primary" />
+                  <Hammer className="text-primary" />
                   All services
                 </a>
                 <Link
@@ -431,7 +438,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
                   className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
                   href="/profile"
                 >
-                  <CgProfile className="text-primary" />
+                  <User className="text-primary" />
                   profile
                 </Link>
                 <Link
@@ -439,7 +446,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
                   className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
                   href="/dashboard"
                 >
-                  <LuMailWarning className="text-primary" />
+                  <MailWarning className="text-primary" />
                   Dashboard
                 </Link>
               </div>
@@ -450,7 +457,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
                 className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
                 href="/login"
               >
-                <MdLogin className="text-primary" />
+                <LogIn className="text-primary" />
                 Login
               </Link>
             ) : (
@@ -462,7 +469,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
                 className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
                 href="#"
               >
-                <MdLogin className="text-primary" />
+                <LogIn className="text-primary" />
                 Logout
               </Link>
             )}

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { createSanitizedHtml } from '../../utils/htmlSanitizer';
-import ImageWithFallback from '../ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 
 const PartPurjaSlug1 = ({ slug, data }: { slug?: string; data?: any }) => {
   return (

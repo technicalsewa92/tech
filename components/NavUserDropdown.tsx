@@ -11,7 +11,7 @@ const Button = dynamic(() => import('@mui/material/Button'), {
 });
 import { MdOutlineDashboard } from 'react-icons/md';
 import { FaDoorOpen } from 'react-icons/fa';
-import { DropdownMenuItem, DropdownMenuContent } from './ui/dropdownmenu';
+import { DropdownMenuItem, DropdownMenuContent } from '@/components/ui';
 
 interface NavUserDropdownProps {
   user: any;

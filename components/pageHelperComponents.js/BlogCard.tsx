@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { generateBlogSlug } from '@/lib/api';
 import { createSanitizedHtml } from '../../utils/htmlSanitizer';
-import ImageWithFallback from '../ui/ImageWithFallback';
+import { ImageWithFallback } from '@/components/ui';
 
 const BlogCard = ({ blog }: any) => {
   const finalSlug = generateBlogSlug(blog);
