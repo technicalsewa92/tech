@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { FiPrinter } from 'react-icons/fi';
+import { Printer } from 'lucide-react';
 
 interface PrintButtonProps {
   className?: string;
@@ -22,7 +22,7 @@ const PrintButton: React.FC<PrintButtonProps> = ({
       className={`flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors ${className}`}
       aria-label="Print this article"
     >
-      <FiPrinter />
+      <Printer />
       <span>{buttonText}</span>
     </button>
   );

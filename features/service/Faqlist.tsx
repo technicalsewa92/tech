@@ -3,7 +3,7 @@
 import { baseUrl } from '@/public/baseUrl';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { Minus, Plus } from 'lucide-react';
 import { createSanitizedHtml } from '../../utils/htmlSanitizer';
 
 const Faqlist = ({ filteredId }: any) => {
@@ -58,9 +58,9 @@ const Faqlist = ({ filteredId }: any) => {
               <span>{item.question}</span>
               <span className="text-primary flex-shrink-0 ml-4">
                 {openIndex === index ? (
-                  <FaMinus className="w-4 h-4" />
+                  <Minus className="w-4 h-4" />
                 ) : (
-                  <FaPlus className="w-4 h-4" />
+                  <Plus className="w-4 h-4" />
                 )}
               </span>
             </button>

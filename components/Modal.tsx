@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
-import { RxCross2 } from 'react-icons/rx';
+import { X } from 'lucide-react';
 import Link from 'next/link';
 import { normalizeImageUrl } from '@/utils/imageUtils';
 
@@ -72,7 +72,7 @@ const Modal = ({ brandName, imgAlt, filterData, imageUrl, onClose }: any) => {
             className="text-gray-500 hover:text-gray-700 transition-colors p-2 rounded-full hover:bg-gray-100"
             aria-label="Close modal"
           >
-            <RxCross2 size={24} />
+            <X size={24} />
           </button>
         </div>
 

@@ -5,7 +5,7 @@ import RecommendedServices from '@/components/RecommendedServices';
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
 import Link from 'next/link';
 import React from 'react';
-import { FaUserPlus } from 'react-icons/fa';
+import { UserPlus } from 'lucide-react';
 import { getAssetUrl } from '@/lib/cdn';
 
 const page = () => {
@@ -35,7 +35,7 @@ const page = () => {
             href="/sign-up-page/sign-up"
             className="flex flex-col items-center gap-4 text-center "
           >
-            <FaUserPlus
+            <UserPlus
               className="border-[2px] border-[#f87171] rounded-full p-2 "
               size="3.6rem"
               color="#2591b2"
@@ -52,7 +52,7 @@ const page = () => {
             href="/sign-up-page/sign-up-pro"
             className="flex flex-col items-center gap-4 text-center"
           >
-            <FaUserPlus
+            <UserPlus
               className="border-[2px] border-[#f87171] rounded-full p-2 "
               size="3.6rem"
               color="#2591b2"

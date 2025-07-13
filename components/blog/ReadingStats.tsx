@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiClock, FiFileText } from 'react-icons/fi';
+import { Clock, FileText } from 'lucide-react';
 
 interface ReadingStatsProps {
   readingTime: string;
@@ -17,13 +17,13 @@ const ReadingStats: React.FC<ReadingStatsProps> = ({
       className={`flex items-center gap-4 text-sm text-gray-600 ${className}`}
     >
       <div className="flex items-center">
-        <FiClock className="mr-1 text-[#2591b2]" />
+        <Clock className="mr-1 text-[#2591b2]" />
         <span>{readingTime}</span>
       </div>
 
       {wordCount && (
         <div className="flex items-center">
-          <FiFileText className="mr-1 text-[#2591b2]" />
+          <FileText className="mr-1 text-[#2591b2]" />
           <span>{wordCount.toLocaleString()} words</span>
         </div>
       )}

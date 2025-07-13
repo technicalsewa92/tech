@@ -6,9 +6,9 @@ import useAuthStore from '@/store/useAuthStore';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
-import { VscFilter } from 'react-icons/vsc';
-import { CiGrid41 } from 'react-icons/ci';
-import { FaList } from 'react-icons/fa6';
+import { Filter } from 'lucide-react';
+import { Grid } from 'lucide-react';
+import { List } from 'lucide-react';
 import ComplainsFilter from '@/features/complain/my-complains/complainsFilter';
 import ComplainsTable from '@/features/complain/my-complains/complainsTable';
 import TabularComplains from '@/features/complain/my-complains/tabularComplains';
@@ -84,20 +84,20 @@ export default function Commissions() {
               setisFilter(!isFilter);
             }}
           >
-            <VscFilter className="text-base" />
+            <Filter className="text-base" />
             <p className="text-xs">Filter</p>
           </div>
           <div
             className={`flex items-center gap-1 justify-center rounded-lg  text-xs p-2 ${listype === 'grid' ? 'border-primary border-2 bg-[#c1e7ef] text-primary' : 'border-gray-300 border bg-white'}  cursor-pointer font-normal`}
             onClick={() => setlistype('grid')}
           >
-            <CiGrid41 className="text-base" />
+            <Grid className="text-base" />
           </div>
           <div
             className={`flex items-center gap-1 justify-center rounded-lg   text-xs p-2 ${listype === 'list' ? 'border-primary border-2 bg-[#c1e7ef] text-primary' : 'border-gray-300 border bg-white'}  cursor-pointer font-normal`}
             onClick={() => setlistype('list')}
           >
-            <FaList className="text-base" />
+            <List className="text-base" />
           </div>
         </div>
       </div>

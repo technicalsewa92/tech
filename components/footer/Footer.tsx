@@ -1,8 +1,8 @@
 import React from 'react';
-import { ImFacebook } from 'react-icons/im';
-import { BiLogoInstagramAlt } from 'react-icons/bi';
-import { BsYoutube, BsTwitter } from 'react-icons/bs';
-import { IoLocationOutline, IoLocationSharp } from 'react-icons/io5';
+import { Facebook } from 'lucide-react';
+import { Instagram } from 'lucide-react';
+import { Youtube, Twitter } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import './footer.css';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -70,7 +70,7 @@ const Footer = async () => {
                 aria-label="Facebook"
                 className="bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-100 transition-colors mobile-button"
               >
-                <ImFacebook className="text-primary" size={20} />
+                <Facebook className="text-primary" size={20} />
               </a>
               <a
                 href="https://www.instagram.com/technicalsewa.np/"
@@ -79,7 +79,7 @@ const Footer = async () => {
                 aria-label="Instagram"
                 className="bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-100 transition-colors mobile-button"
               >
-                <BiLogoInstagramAlt className="text-primary" size={20} />
+                <Instagram className="text-primary" size={20} />
               </a>
               <a
                 href="https://www.youtube.com/channel/UCw2U7K_AKEkws0uzyI4T_kA"
@@ -88,7 +88,7 @@ const Footer = async () => {
                 aria-label="YouTube"
                 className="bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-100 transition-colors mobile-button"
               >
-                <BsYoutube className="text-primary" size={20} />
+                <Youtube className="text-primary" size={20} />
               </a>
               <a
                 href="https://twitter.com/technicals2023"
@@ -97,7 +97,7 @@ const Footer = async () => {
                 aria-label="Twitter"
                 className="bg-white text-primary rounded-full w-9 h-9 flex items-center justify-center hover:bg-gray-100 transition-colors mobile-button"
               >
-                <BsTwitter className="text-primary" size={20} />
+                <Twitter className="text-primary" size={20} />
               </a>
             </div>
           </div>

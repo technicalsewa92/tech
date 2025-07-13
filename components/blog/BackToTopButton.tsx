@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { FiArrowUp } from 'react-icons/fi';
+import { ArrowUp } from 'lucide-react';
 
 interface BackToTopButtonProps {
   threshold?: number;
@@ -49,7 +49,7 @@ const BackToTopButton: React.FC<BackToTopButtonProps> = ({
       aria-label="Back to top"
       title="Back to top"
     >
-      <FiArrowUp size={20} />
+      <ArrowUp size={20} />
     </button>
   );
 };

@@ -7,7 +7,7 @@ import OrderTracking from '@/features/dashboard/OrderTraking';
 import TopContainers from '@/features/dashboard/TopContainers';
 import useAuthStore from '@/store/useAuthStore';
 import { api } from '@/lib/api';
-import { IoMenu } from 'react-icons/io5';
+import { Menu } from 'lucide-react';
 import SideNav from '@/features/dashboard/SideNavBar';
 import { useRouter } from 'next/navigation';
 
@@ -165,7 +165,7 @@ export default function Component() {
 
       <main className="overflow-y-scroll w-full md:pb-0 pb-20">
         <div className="flex w-full px-5 py-3 justify-between items-center">
-          <IoMenu className="text-2xl md:hidden" onClick={toggleSidebar} />
+          <Menu className="text-2xl md:hidden" onClick={toggleSidebar} />
           <h1 className="text-xl font-semibold text-gray-800">My Dashboard</h1>
           <div className="px-5 py-2 rounded-md bg-primary text-white items-center justify-center">
             {userType}

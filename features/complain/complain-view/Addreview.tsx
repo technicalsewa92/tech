@@ -1,7 +1,7 @@
 import { api } from '@/lib/api';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { IoMdStar } from 'react-icons/io';
+import { Star } from 'lucide-react';
 
 const ReviewForm = ({ complainId }: any) => {
   const [rating, setRating] = useState(0); // For storing the star rating
@@ -42,7 +42,7 @@ const ReviewForm = ({ complainId }: any) => {
         {[...Array(5)].map((_, index) => {
           const currentRating = index + 1;
           return (
-            <IoMdStar
+            <Star
               key={index}
               className={`cursor-pointer text-2xl ${
                 currentRating <= (hoverRating || rating)

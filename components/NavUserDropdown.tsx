@@ -9,8 +9,8 @@ const Button = dynamic(() => import('@mui/material/Button'), {
     />
   ),
 });
-import { MdOutlineDashboard } from 'react-icons/md';
-import { FaDoorOpen } from 'react-icons/fa';
+import { LayoutDashboard } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { DropdownMenuItem, DropdownMenuContent } from '@/components/ui';
 
 interface NavUserDropdownProps {
@@ -32,7 +32,7 @@ const NavUserDropdown: React.FC<NavUserDropdownProps> = ({
           onClick={onDashboard}
           disableElevation
         >
-          <MdOutlineDashboard className="text-xl" />
+          <LayoutDashboard className="text-xl" />
           Dashboard
         </Button>
         <Button
@@ -40,7 +40,7 @@ const NavUserDropdown: React.FC<NavUserDropdownProps> = ({
           className="bg-cyan-500 text-white rounded-md gap-2 py-2 text-xs hover:bg-cyan-600 cursor-pointer transition-all hover:duration-300 min-w-[96px] min-h-[32px]"
           disableElevation
         >
-          <FaDoorOpen className="text-xl" />
+          <LogOut className="text-xl" />
           Log Out
         </Button>
       </div>

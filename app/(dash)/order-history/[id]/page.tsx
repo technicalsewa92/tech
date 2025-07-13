@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { ImageWithFallback } from '@/components/ui';
-import { CgDanger } from 'react-icons/cg';
+import { AlertTriangle } from 'lucide-react';
 // import img from "../../../../public/dummy-user.png"
 import axios from 'axios';
 import { api } from '@/lib/api';
@@ -346,7 +346,7 @@ export default function Component() {
                   <div className="flex justify-between">
                     <span className="font-medium text-lg">Cash payment</span>
                     <span className="flex gap-1 items-center bg-green-200 text-green-600 p-2 rounded-full">
-                      <CgDanger />
+                      <AlertTriangle />
                       Done
                     </span>
                   </div>
@@ -354,7 +354,7 @@ export default function Component() {
                   <div className="flex justify-between">
                     <span className="font-medium text-lg">Cash payment</span>
                     <span className="flex gap-1 items-center bg-red-200 text-red-600 p-2 rounded-full">
-                      <CgDanger />
+                      <AlertTriangle />
                       Pending
                     </span>
                   </div>

@@ -11,11 +11,7 @@ import Paper from '@mui/material/Paper';
 import { Complain } from './types';
 import { TablePagination } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { MdOutlinePhone } from 'react-icons/md';
-import { TbBrandAnsible } from 'react-icons/tb';
-import { FaProductHunt } from 'react-icons/fa6';
-import { IoLocationOutline } from 'react-icons/io5';
-import { MdOutlineSpeakerPhone } from 'react-icons/md';
+import { Phone, Package, MapPin } from 'lucide-react';
 
 export default function ComplainsTable({
   loading,
@@ -61,27 +57,27 @@ export default function ComplainsTable({
                 {e.cust_first_name} {e.cust_last_name}
               </h1>
               <div className="flex gap-2 items-center text-gray-500 mt-2">
-                <MdOutlinePhone />
+                <Phone />
                 <a href={`tel:${e.cust_phone_mobile}`}>
                   <p className="text-xs ">{e.cust_phone_mobile}</p>
                 </a>
               </div>
               <div className="flex gap-2 items-center text-gray-500 mt-2">
-                <MdOutlineSpeakerPhone />
+                <Phone />
                 <a href={`tel:${e.cust_phone_home}`}>
                   <p className="text-xs ">{e.cust_phone_home}</p>
                 </a>
               </div>
               <div className="flex gap-2 items-center text-gray-500 mt-2">
-                <TbBrandAnsible />
+                <Package />
                 <p className="text-xs ">{e.brand_name}</p>
               </div>
               <div className="flex gap-2 items-center text-gray-500 mt-2">
-                <FaProductHunt />
+                <Package />
                 <p className="text-xs ">{e.product_name}</p>
               </div>
               <div className="flex gap-2 items-center text-gray-500 mt-2">
-                <IoLocationOutline />
+                <MapPin />
                 <p className="text-xs ">{e.cust_address}</p>
               </div>
               <hr className="my-3" />

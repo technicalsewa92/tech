@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ImageWithFallback } from '@/components/ui';
-import { RxCross2 } from 'react-icons/rx';
-import { IoMdStar } from 'react-icons/io';
+import { X } from 'lucide-react';
+import { Star } from 'lucide-react';
 import StoreLocation from '@/features/account/profile/userLocation';
 import { api } from '@/lib/api';
 import useAuthStore from '@/store/useAuthStore';
@@ -157,7 +157,7 @@ const ProfessionalsCardModal = ({
                             <div className="flex gap-1">
                               {[...Array(parseInt(e.rating))].map((e, i) => {
                                 return (
-                                  <IoMdStar
+                                  <Star
                                     key={i}
                                     className="text-yellow-500 text-base"
                                   />
@@ -181,7 +181,7 @@ const ProfessionalsCardModal = ({
             )}
           </div>
 
-          <RxCross2
+          <X
             size={16}
             className="text-[#8C8C8C]"
             onClick={() => myDialog?.current?.close()}

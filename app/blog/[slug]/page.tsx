@@ -17,7 +17,7 @@ import {
   formatDate,
 } from '@/utils/blogUtils';
 import { Metadata } from 'next';
-import { FiArrowLeft, FiBookmark } from 'react-icons/fi';
+import { ArrowLeft, Bookmark } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 // Import client components
@@ -77,7 +77,7 @@ const BlogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
             href="/blogs"
             className="bg-[#2591b2] text-white px-6 py-3 rounded-lg hover:bg-[#1a7a96] transition-colors inline-flex items-center"
           >
-            <FiArrowLeft className="mr-2" /> Browse All Blogs
+            <ArrowLeft className="mr-2" /> Browse All Blogs
           </Link>
         </div>
       </div>
@@ -288,7 +288,7 @@ const BlogPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
               {/* Categories */}
               <div className="bg-white rounded-xl shadow-sm p-6 border border-[#2591b2]/20">
                 <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                  <FiBookmark className="mr-2 text-[#2591b2]" /> Categories
+                  <Bookmark className="mr-2 text-[#2591b2]" /> Categories
                 </h2>
                 <BlogCategorylist categories={trainingCategories} />
               </div>

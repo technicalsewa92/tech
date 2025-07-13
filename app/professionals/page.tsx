@@ -6,9 +6,9 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import { fetchServerClient, getSEOByPageURL } from '@/lib/api';
 import Link from 'next/link';
 import React from 'react';
-import { BsFillTelephoneFill } from 'react-icons/bs';
-import { RiLayoutGridFill } from 'react-icons/ri';
-import { TfiLayoutColumn3Alt } from 'react-icons/tfi';
+import { Phone } from 'lucide-react';
+import { Grid } from 'lucide-react';
+import { Columns } from 'lucide-react';
 import ProfessionDetails from './ProfessionDetails';
 
 // professionals page

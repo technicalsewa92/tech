@@ -1,14 +1,14 @@
 'use client';
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import { BsEyeSlashFill } from 'react-icons/bs';
-import { AiOutlineEye } from 'react-icons/ai';
+import { EyeOff } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import axios from 'axios';
 import useAuthStore from '@/store/useAuthStore';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
-import { FaFacebook } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
+import { Facebook } from 'lucide-react';
+import { Chrome } from 'lucide-react';
 import { loginWithFacebook, loginWithGoogle } from '../auth';
 import { baseUrl } from '@/public/baseUrl';
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
@@ -291,7 +291,7 @@ const LoginForm = ({ cb }: { cb?: () => void }) => {
             className=" border-l-[1px] p-4"
             onClick={() => setshowPassword(!showPassword)}
           >
-            {showPassword ? <AiOutlineEye /> : <BsEyeSlashFill />}
+            {showPassword ? <Eye /> : <EyeOff />}
           </div>
         </div>
         <Link
@@ -323,14 +323,14 @@ const LoginForm = ({ cb }: { cb?: () => void }) => {
         <div className="text-center">or</div>
 
         <div className="flex items-center justify-center mt-5 mb-[10px] space-x-1 gap-4">
-          <FcGoogle
+          <Chrome
             size={30}
             className="text-[#34A853] cursor-pointer"
             onClick={() => {
               handleGoogleLogin();
             }}
           />
-          <FaFacebook
+          <Facebook
             size={30}
             className="text-[#1877F2] cursor-pointer"
             onClick={() => {

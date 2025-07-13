@@ -7,10 +7,8 @@ import { baseUrl } from '@/public/baseUrl';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import { AiFillStar } from 'react-icons/ai';
+import { Star, Phone, ArrowRight } from 'lucide-react';
 import { createSanitizedHtml } from '../../utils/htmlSanitizer';
-import { BsFillTelephoneFill } from 'react-icons/bs';
-import { SlArrowRight } from 'react-icons/sl';
 
 const ServiceSlug1 = ({ data }: any) => {
   //state variable
@@ -98,7 +96,7 @@ const ServiceSlug1 = ({ data }: any) => {
                     <div className="flex flex-row gap-[10px] mt-4">
                       <div className="h-[40px] bg-[#1D738D] flex itmes-center  text-white py-[5px] px-[15px] rounded-[6px] mt-[5px]">
                         <div className="flex items-center text-[12px] md:text-[14px] lg:text-[16px]">
-                          <AiFillStar className="" />
+                          <Star className="" />
                           <p className="pl-[2px] md:pl-[5px] font-semibold">
                             4.65
                           </p>
@@ -111,7 +109,7 @@ const ServiceSlug1 = ({ data }: any) => {
                         href="tel:9851201580"
                         className="flex items-center justify-center bg-white gap-[8px] h-[40px] w-[160px] border border-[#2591B2] rounded-[6px] text-[#1D738D] mt-[5px] text-[12px] md:text-[14px] lg:text-[16px]"
                       >
-                        <BsFillTelephoneFill className="text-primary " />
+                        <Phone className="text-primary " />
                         9851201580
                       </a>
                     </div>
@@ -146,7 +144,7 @@ const ServiceSlug1 = ({ data }: any) => {
                         className=" hover:bg-gray-500 cursor-pointer flex justify-between items-center px-4 py-[12px] bg-white w-full text-black rounded-md "
                       >
                         {val.text}
-                        <SlArrowRight />
+                        <ArrowRight />
                       </a>
                     ))}
                   </div>

@@ -2,8 +2,8 @@
 
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
 import React, { useState } from 'react';
-import { BsEyeSlashFill } from 'react-icons/bs';
-import { AiOutlineEye } from 'react-icons/ai';
+import { EyeOff } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import axios from 'axios';
 import { baseUrl } from '@/public/baseUrl';
 import { useRouter } from 'next/navigation';
@@ -139,7 +139,7 @@ const StandardSignUp = () => {
                 className=" border-l-[1px] p-4"
                 onClick={() => setshowPassword(!showPassword)}
               >
-                {showPassword ? <AiOutlineEye /> : <BsEyeSlashFill />}
+                {showPassword ? <Eye /> : <EyeOff />}
               </div>
             </div>
             <div className="flex items-center  border-[1px] justify-between">
@@ -156,7 +156,7 @@ const StandardSignUp = () => {
                 className=" border-l-[1px] p-4"
                 onClick={() => setshowConfirmPassword(!showConfirmPassword)}
               >
-                {showConfirmPassword ? <AiOutlineEye /> : <BsEyeSlashFill />}
+                {showConfirmPassword ? <Eye /> : <EyeOff />}
               </div>
             </div>
           </div>

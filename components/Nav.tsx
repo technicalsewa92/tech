@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import {
   LogOut,
-  Wrench,
+  Shield,
   Menu,
   DoorOpen,
   Home,
@@ -419,7 +419,7 @@ const Nav = ({ services = [], trainingCategories: categories = [] }: any) => {
               className="flex px-[16px] gap-4 text-[14px] font-normal items-center  w-full justify-starts"
               href="/spareparts"
             >
-              <Wrench className="text-primary" />
+              <Shield className="text-primary" />
               Spare Parts
             </Link>
 

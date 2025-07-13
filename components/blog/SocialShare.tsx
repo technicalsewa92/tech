@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
+import { Mail } from 'lucide-react';
 import {
   FiFacebook,
   FiTwitter,
   FiLinkedin,
-  FiMail,
   FiLink,
   FiShare2,
 } from 'react-icons/fi';
@@ -61,7 +61,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
     },
     {
       name: 'Email',
-      icon: <FiMail />,
+      icon: <Mail />,
       url: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
       color: 'bg-[#ea4335] hover:bg-[#d62516]',
     },

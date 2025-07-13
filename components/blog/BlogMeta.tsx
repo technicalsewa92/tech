@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiCalendar, FiUser, FiClock, FiFileText } from 'react-icons/fi';
+import { Calendar, User, Clock, FileText } from 'lucide-react';
 
 interface BlogMetaProps {
   author?: string;
@@ -32,28 +32,28 @@ const BlogMeta: React.FC<BlogMetaProps> = ({
       <div className="flex items-center gap-4 flex-wrap">
         {author && (
           <div className="flex items-center">
-            <FiUser className="mr-1 text-[#2591b2]" />
+            <User className="mr-1 text-[#2591b2]" />
             <span className="text-[#2591b2] font-medium">{author}</span>
           </div>
         )}
 
         {formattedDate && (
           <div className="flex items-center">
-            <FiCalendar className="mr-1 text-[#2591b2]" />
+            <Calendar className="mr-1 text-[#2591b2]" />
             <span>{formattedDate}</span>
           </div>
         )}
 
         {readingTime && (
           <div className="flex items-center">
-            <FiClock className="mr-1 text-[#2591b2]" />
+            <Clock className="mr-1 text-[#2591b2]" />
             <span>{readingTime}</span>
           </div>
         )}
 
         {wordCount && (
           <div className="flex items-center">
-            <FiFileText className="mr-1 text-[#2591b2]" />
+            <FileText className="mr-1 text-[#2591b2]" />
             <span>{wordCount.toLocaleString()} words</span>
           </div>
         )}

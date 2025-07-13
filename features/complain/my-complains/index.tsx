@@ -8,12 +8,12 @@ import React, { useEffect, useState } from 'react';
 import ComplainsTable from './complainsTable';
 import { Complain } from './types';
 import ComplainsFilter from './complainsFilter';
-import { VscFilter } from 'react-icons/vsc';
-import { CiGrid41 } from 'react-icons/ci';
-import { FaList } from 'react-icons/fa6';
+import { Filter } from 'lucide-react';
+import { Grid } from 'lucide-react';
+import { List } from 'lucide-react';
 import TabularComplains from './tabularComplains';
 import SideNav from '@/features/dashboard/SideNavBar';
-import { IoMenu } from 'react-icons/io5';
+import { Menu } from 'lucide-react';
 
 export default function UserComplains() {
   const { push } = useRouter();
@@ -84,7 +84,7 @@ export default function UserComplains() {
 
       <div className="container mx-auto py-10 px-5">
         <div className="flex gap-2">
-          <IoMenu className="text-2xl md:hidden" onClick={toggleSidebar} />
+          <Menu className="text-2xl md:hidden" onClick={toggleSidebar} />
 
           <h1 className="text-xl">Complains List </h1>
         </div>
@@ -108,20 +108,20 @@ export default function UserComplains() {
                 setisFilter(!isFilter);
               }}
             >
-              <VscFilter className="text-base" />
+              <Filter className="text-base" />
               <p className="text-xs">Filter</p>
             </div>
             <div
               className={`flex items-center gap-1 justify-center rounded-lg  text-xs p-2 ${listype === 'grid' ? 'border-primary border-2 bg-[#c1e7ef] text-primary' : 'border-gray-300 border bg-white'}  cursor-pointer font-normal`}
               onClick={() => setlistype('grid')}
             >
-              <CiGrid41 className="text-base" />
+              <Grid className="text-base" />
             </div>
             <div
               className={`flex items-center gap-1 justify-center rounded-lg   text-xs p-2 ${listype === 'list' ? 'border-primary border-2 bg-[#c1e7ef] text-primary' : 'border-gray-300 border bg-white'}  cursor-pointer font-normal`}
               onClick={() => setlistype('list')}
             >
-              <FaList className="text-base" />
+              <List className="text-base" />
             </div>
           </div>
         </div>
