@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { Phone } from 'lucide-react';
+import { BsFillTelephoneFill } from 'react-icons/bs';
 import CallbackFormModal from './Request';
 const FooterContact = () => {
   const [open, setopen] = useState(false);
@@ -44,7 +44,7 @@ const FooterContact = () => {
               href="tel:9851201580"
               className="bg-white border border-primary text-primary hover:bg-primary/10 px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow flex items-center justify-center gap-2"
             >
-              <Phone size={20} />
+              <BsFillTelephoneFill size={20} />
               Call Us
             </a>
           </div>
@@ -52,7 +52,7 @@ const FooterContact = () => {
           <div className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm flex flex-col items-center md:items-start w-full max-w-md mx-auto md:mx-0 mb-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Phone className="text-white" size={18} />
+                <BsFillTelephoneFill className="text-white" size={18} />
               </div>
               <div>
                 <h4 className="font-semibold text-gray-800">Call Us Now</h4>

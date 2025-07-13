@@ -3,7 +3,7 @@ import useAuthStore from '@/store/useAuthStore';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { Clock, AlertCircle } from 'lucide-react';
+import { MdPendingActions } from 'react-icons/md';
 import NepaliDate from 'nepali-date-converter';
 
 interface OrderStatus {
@@ -144,7 +144,7 @@ export default function TopContainers() {
           <div className="flex flex-wrap items-center gap-2 px-4 py-2">
             <NewContainer
               title={'Pending'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_pending}
               firstcolor={'#fe9b5c'}
               secondcolor={'#f3b564'}
@@ -153,7 +153,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Part Pending'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_part_pending}
               firstcolor={'#01abae'}
               secondcolor={'#00dade'}
@@ -162,17 +162,17 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Closed'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_closed}
               firstcolor={'#5e62fe'}
               secondcolor={'#8089f7'}
               link={`/allcomplains?id=${3}&title=Closed`}
               router={router}
             />
-            {/* <NewContainer title={"Open"} Icon={AlertCircle} value={data.} firstcolor={"#5e62fe"} secondcolor={"#8089f7"} link={`/allcomplains?id=${0}&title=Open`} router={router} /> */}
+            {/* <NewContainer title={"Open"} Icon={MdPendingActions} value={data.} firstcolor={"#5e62fe"} secondcolor={"#8089f7"} link={`/allcomplains?id=${0}&title=Open`} router={router} /> */}
             <NewContainer
               title={'Temp Closed'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_temp_closed}
               firstcolor={'#9c939c'}
               secondcolor={'#484eb1'}
@@ -181,7 +181,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Cancelled'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_cancelled}
               firstcolor={'#34bc60'}
               secondcolor={'#5cfc80'}
@@ -190,7 +190,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Billed'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_billed}
               link={`/allcomplains?id=${14}`}
               firstcolor={'#fd5deb'}
@@ -199,7 +199,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Warranty Complains'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_warranty_complains}
               firstcolor={'#8364d3'}
               secondcolor={'#a1592e'}
@@ -207,7 +207,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Non-Warranty Complains'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_non_warranty_complains}
               firstcolor={'#8364d3'}
               secondcolor={'#3faf68'}
@@ -215,18 +215,18 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Verified Complains'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_verified_complains}
               firstcolor={'#fd5deb'}
               link={`/allcomplains?id=${13}&title=Verified Complains`}
               router={router}
               secondcolor={'#fe7686'}
             />
-            {/* <NewContainer title={"Generated Comissions"} Icon={AlertCircle} value={data.total_generated_comission} firstcolor={"#47db6f"} secondcolor={"#f78efd"} /> */}
-            {/* <NewContainer title={"Received Commissions"} Icon={AlertCircle} value={data.total_received_comission} firstcolor={"#fd5deb"} secondcolor={"#906092"} /> */}
+            {/* <NewContainer title={"Generated Comissions"} Icon={MdPendingActions} value={data.total_generated_comission} firstcolor={"#47db6f"} secondcolor={"#f78efd"} /> */}
+            {/* <NewContainer title={"Received Commissions"} Icon={MdPendingActions} value={data.total_received_comission} firstcolor={"#fd5deb"} secondcolor={"#906092"} /> */}
             <NewContainer
               title={'Dispached'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_dispatched}
               firstcolor={'#ff5d70'}
               link={`/allcomplains?id=${12}&title=Dispached`}
@@ -235,7 +235,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Recomplain'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={data?.total_recomplain}
               firstcolor={'#fe9365'}
               secondcolor={'#feb798'}
@@ -244,7 +244,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Loyalty In'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={
                 data?.total_loyalty_in == null ? '0' : data.total_loyalty_in
               }
@@ -254,7 +254,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Loyalty Out'}
-              Icon={AlertCircle}
+              Icon={MdPendingActions}
               value={
                 data?.total_loyalty_out == null ? '0' : data.total_loyalty_out
               }
@@ -272,7 +272,7 @@ export default function TopContainers() {
             <div className="flex flex-wrap items-center gap-2 px-4 py-2">
               <NewContainer
                 title={'Pending'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '1')}
                 firstcolor={'#fe9b5c'}
                 secondcolor={'#f3b564'}
@@ -281,7 +281,7 @@ export default function TopContainers() {
               />
               <NewContainer
                 title={'Confirm'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '2')}
                 firstcolor={'#01abae'}
                 secondcolor={'#00dade'}
@@ -290,7 +290,7 @@ export default function TopContainers() {
               />
               <NewContainer
                 title={'Processing'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '3')}
                 firstcolor={'#5e62fe'}
                 secondcolor={'#8089f7'}
@@ -299,7 +299,7 @@ export default function TopContainers() {
               />
               <NewContainer
                 title={'OntheWay'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '4')}
                 firstcolor={'#9c939c'}
                 secondcolor={'#484eb1'}
@@ -308,7 +308,7 @@ export default function TopContainers() {
               />
               <NewContainer
                 title={'Delivered'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '5')}
                 firstcolor={'#34bc60'}
                 secondcolor={'#5cfc80'}
@@ -317,7 +317,7 @@ export default function TopContainers() {
               />
               <NewContainer
                 title={'Cancelled'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '6')}
                 firstcolor={'#fd5deb'}
                 secondcolor={'#f78efd'}
@@ -326,7 +326,7 @@ export default function TopContainers() {
               />
               <NewContainer
                 title={'Returned'}
-                Icon={AlertCircle}
+                Icon={MdPendingActions}
                 value={getSalesStatusCount(counters, '7')}
                 firstcolor={'#8364d3'}
                 secondcolor={'#a1592e'}

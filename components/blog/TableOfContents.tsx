@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { List } from 'lucide-react';
+import { FiList } from 'react-icons/fi';
 import { Link as ScrollLink } from 'react-scroll';
 
 interface TOCItem {
@@ -85,7 +85,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <h3 className="font-semibold text-[#2591b2] flex items-center">
-          <List className="mr-2" /> Table of Contents
+          <FiList className="mr-2" /> Table of Contents
         </h3>
         <span className="text-[#2591b2]">{isOpen ? '−' : '+'}</span>
       </div>

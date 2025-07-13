@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ImageWithFallback } from '@/components/ui';
+
 interface Banner {
   id: string;
   image_type_code: string;
@@ -18,33 +19,88 @@ interface ApiResponse {
 const PopupBanner: React.FC = () => {
   const [popupBanner, setPopupBanner] = useState<Banner | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    // sessionStorage.removeItem('hasSeenPopup');
-
     const handleBeforeUnload = () => {
-      sessionStorage.removeItem('hasSeenPopup');
+      if (typeof sessionStorage !== 'undefined') {
+        sessionStorage.removeItem('hasSeenPopup');
+      }
     };
 
-    window.addEventListener('beforeunload', handleBeforeUnload);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('beforeunload', handleBeforeUnload);
+    }
 
-    const hasSeenPopup = sessionStorage.getItem('hasSeenPopup');
+    const hasSeenPopup =
+      typeof sessionStorage !== 'undefined'
+        ? sessionStorage.getItem('hasSeenPopup')
+        : null;
+
     if (!hasSeenPopup) {
       const fetchPopupBanner = async () => {
         try {
+          setLoading(true);
+          // Try the correct API endpoint first
           const response = await axios.get<ApiResponse>(
-            'https://www.technicalsewa.com/techsewa/masterconfig/publicmasterconfig/getconfiglist'
+            'https://crm.technicalsewa.com/techsewa/masterconfig/publicmasterconfig/getConfigList',
+            {
+              timeout: 5000,
+              headers: {
+                'Cache-Control': 'no-cache',
+              },
+            }
           );
-          const banners = response.data.brands;
 
-          const popup = banners.find(banner => banner.image_type === 'POP UP');
+          if (response?.data?.brands) {
+            const banners = response.data.brands;
+            const popup = banners.find(
+              banner => banner.image_type === 'POP UP'
+            );
 
-          if (popup) {
-            setPopupBanner(popup);
-            setIsVisible(true);
+            if (popup) {
+              setPopupBanner(popup);
+              setIsVisible(true);
+            }
           }
-        } catch (error) {
-          console.error('Error fetching popup banner:', error);
+        } catch (error: any) {
+          console.warn(
+            'Popup banner fetch failed:',
+            error?.message || 'Unknown error'
+          );
+
+          // Try fallback endpoint if first one fails
+          try {
+            const fallbackResponse = await axios.get<ApiResponse>(
+              'https://www.technicalsewa.com/techsewa/masterconfig/publicmasterconfig/getconfiglist',
+              {
+                timeout: 5000,
+                headers: {
+                  'Cache-Control': 'no-cache',
+                },
+              }
+            );
+
+            if (fallbackResponse?.data?.brands) {
+              const banners = fallbackResponse.data.brands;
+              const popup = banners.find(
+                banner => banner.image_type === 'POP UP'
+              );
+
+              if (popup) {
+                setPopupBanner(popup);
+                setIsVisible(true);
+              }
+            }
+          } catch (fallbackError: any) {
+            console.warn(
+              'Fallback popup banner fetch also failed:',
+              fallbackError?.message || 'Unknown error'
+            );
+            // Don't show popup if both endpoints fail
+          }
+        } finally {
+          setLoading(false);
         }
       };
 
@@ -52,16 +108,21 @@ const PopupBanner: React.FC = () => {
     }
 
     return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+      }
     };
   }, []);
 
   const closePopup = (): void => {
     setIsVisible(false);
-    sessionStorage.setItem('hasSeenPopup', 'true');
+    if (typeof sessionStorage !== 'undefined') {
+      sessionStorage.setItem('hasSeenPopup', 'true');
+    }
   };
 
-  if (!popupBanner || !isVisible) return null;
+  // Don't render anything if loading or no popup
+  if (loading || !popupBanner || !isVisible) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">

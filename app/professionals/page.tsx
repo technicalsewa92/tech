@@ -6,9 +6,9 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import { fetchServerClient, getSEOByPageURL } from '@/lib/api';
 import Link from 'next/link';
 import React from 'react';
-import { Phone } from 'lucide-react';
-import { Grid } from 'lucide-react';
-import { Columns } from 'lucide-react';
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import { RiLayoutGridFill } from 'react-icons/ri';
+import { TfiLayoutColumn3Alt } from 'react-icons/tfi';
 import ProfessionDetails from './ProfessionDetails';
 
 // professionals page
@@ -26,10 +26,10 @@ const page = async () => {
     }
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
-      console.log(
-        'Professionals data unavailable:',
-        error instanceof Error ? error.message : 'Unknown error'
-      );
+      // console.log(
+      //   'Professionals data unavailable:',
+      //   error instanceof Error ? error.message : 'Unknown error'
+      // );
     }
     // professionalsData already has fallback (empty array)
   }
@@ -110,10 +110,10 @@ export async function generateMetadata() {
     seoData = await getSEOByPageURL(`/professionals`);
   } catch (error) {
     if (process.env.NODE_ENV === 'development') {
-      console.log(
-        'SEO data unavailable for professionals page:',
-        error instanceof Error ? error.message : 'Unknown error'
-      );
+      // console.log(
+      //   'SEO data unavailable for professionals page:',
+      //   error instanceof Error ? error.message : 'Unknown error'
+      // );
     }
   }
 

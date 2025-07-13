@@ -3,7 +3,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import CategoryCard from './CategoryCard';
 import axios from 'axios';
 import { normalizeImageUrl } from '@/utils/imageUtils';
-// import { fetchServerClient } from '@/lib/api';
+// import { fetchServerClient } from "@/lib/api";
 
 const Categories = ({ allBrands }: any) => {
   const [data, setData] = useState<any[]>([]);
@@ -202,7 +202,7 @@ export default Categories;
 // import React from "react";
 // import CategoryCard from "./CategoryCard";
 // import axios from "axios";
-// import { fetchServerClient } from '@/lib/api';
+// import { fetchServerClient } from "@/lib/api";
 
 // const Categories = async ({ allBrands }: any) => {
 

@@ -3,7 +3,7 @@ import useAuthStore from '@/store/useAuthStore';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { Clock } from 'lucide-react';
+import { MdPendingActions } from 'react-icons/md';
 import NepaliDate from 'nepali-date-converter';
 import { useCustomerSales } from '@/lib/api';
 
@@ -131,7 +131,7 @@ export default function TopContainers() {
           <div className="flex flex-wrap items-center gap-2 px-4 py-2">
             <NewContainer
               title={'Pending'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_pending}
               firstcolor={'#fe9b5c'}
               secondcolor={'#f3b564'}
@@ -140,7 +140,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Part Pending'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_part_pending}
               firstcolor={'#01abae'}
               secondcolor={'#00dade'}
@@ -149,7 +149,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Closed'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_closed}
               firstcolor={'#5e62fe'}
               secondcolor={'#8089f7'}
@@ -158,7 +158,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Temp Closed'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_temp_closed}
               firstcolor={'#9c939c'}
               secondcolor={'#484eb1'}
@@ -167,7 +167,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Cancelled'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_cancelled}
               firstcolor={'#34bc60'}
               secondcolor={'#5cfc80'}
@@ -176,7 +176,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Billed'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_billed}
               link={`/allcomplains?id=${14}`}
               firstcolor={'#fd5deb'}
@@ -185,7 +185,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Dispatched'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_dispatched}
               link={`/allcomplains?id=${15}`}
               firstcolor={'#fd5deb'}
@@ -194,7 +194,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Warranty Complains'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_warranty_complains}
               link={`/allcomplains?id=${6}&title=Warranty Complains`}
               firstcolor={'#fd5deb'}
@@ -203,7 +203,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Recomplain'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_recomplain}
               link={`/allcomplains?id=${7}&title=Recomplain`}
               firstcolor={'#fd5deb'}
@@ -212,7 +212,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Non Warranty Complains'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_non_warranty_complains}
               link={`/allcomplains?id=${8}&title=Non Warranty Complains`}
               firstcolor={'#fd5deb'}
@@ -221,7 +221,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Verified Complains'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_verified_complains}
               link={`/allcomplains?id=${9}&title=Verified Complains`}
               firstcolor={'#fd5deb'}
@@ -230,7 +230,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Generated Comission'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_generated_comission}
               link={`/allcomplains?id=${10}&title=Generated Comission`}
               firstcolor={'#fd5deb'}
@@ -239,7 +239,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Received Comission'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_received_comission}
               link={`/allcomplains?id=${11}&title=Received Comission`}
               firstcolor={'#fd5deb'}
@@ -248,7 +248,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Loyalty In'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_loyalty_in}
               link={`/allcomplains?id=${12}&title=Loyalty In`}
               firstcolor={'#fd5deb'}
@@ -257,7 +257,7 @@ export default function TopContainers() {
             />
             <NewContainer
               title={'Loyalty Out'}
-              Icon={Clock}
+              Icon={MdPendingActions}
               value={data?.total_loyalty_out}
               link={`/allcomplains?id=${13}&title=Loyalty Out`}
               firstcolor={'#fd5deb'}

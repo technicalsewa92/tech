@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import React, { memo, useEffect, useState, useCallback } from 'react';
 const Image = dynamic(() => import('next/image'), { ssr: false });
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 
 const HeroCarousel = memo(({ banners }: any) => {
   const [banner, setBanner] = useState(0);
@@ -58,7 +58,7 @@ const HeroCarousel = memo(({ banners }: any) => {
             className="absolute z-20 left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
             aria-label="Previous banner"
           >
-            <ArrowLeft className="text-2xl" />
+            <BiLeftArrow className="text-2xl" />
           </button>
 
           <button
@@ -66,7 +66,7 @@ const HeroCarousel = memo(({ banners }: any) => {
             className="absolute z-20 right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full transition-all duration-300 hover:scale-110"
             aria-label="Next banner"
           >
-            <ArrowRight className="text-2xl" />
+            <BiRightArrow className="text-2xl" />
           </button>
         </>
       )}

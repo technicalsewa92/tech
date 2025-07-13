@@ -1,8 +1,10 @@
-import { Shield, Droplets, Phone } from 'lucide-react';
+'use client';
 
-export default function WhyChooseUs() {
+import React from 'react';
+
+function WhyChooseUs() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-16" suppressHydrationWarning={true}>
       <div className="max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10">
@@ -88,7 +90,7 @@ export default function WhyChooseUs() {
           <div className="flex-1 grid grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto md:mx-0">
             <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200 text-center">
               <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Shield color="white" fontSize={24} />
+                <span className="text-white text-2xl">😷</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Safety Masks
@@ -99,7 +101,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200 text-center">
               <div className="w-12 h-12 bg-primary/80 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Phone color="white" fontSize={20} />
+                <span className="text-white text-2xl">📞</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 24/7 Support
@@ -110,7 +112,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200 text-center">
               <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Droplets color="white" fontSize={24} />
+                <span className="text-white text-2xl">🧴</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Sanitization
@@ -121,7 +123,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200 text-center">
               <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Shield color="white" fontSize={24} />
+                <span className="text-white text-2xl">🧤</span>
               </div>
               <h3 className="text-lg font-semibold text-gray-800 mb-2">
                 Safety Gloves
@@ -136,3 +138,5 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+
+export default WhyChooseUs;

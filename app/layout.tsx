@@ -8,7 +8,7 @@ import ClientWrapper from '@/components/ClientWrapper';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import WebVitals from '@/components/WebVitals';
 import ServiceWorkerProvider from '@/components/ServiceWorkerProvider';
-import { ErrorBoundary } from '@/components/ErrorBoundary';
+
 import ReactQueryProvider from '@/lib/react-query';
 import { logger, performanceLogger } from '@/lib/logger';
 import { fetchLayoutData } from '@/lib/api';
@@ -240,23 +240,21 @@ export default async function RootLayout({
         {/* Canonical Provider */}
         <CanonicalProvider />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         {/* Optimized analytics loading */}
         <GoogleAnalytics />
 
         {/* Web Vitals Monitoring */}
         <WebVitals />
 
-        {/* Error Boundary and React Query Provider */}
-        <ErrorBoundary>
-          <ReactQueryProvider>
-            {/* Optimized component loading */}
-            <Nav services={services} trainingCategories={trainingCategories} />
-            {children}
-            <Footer />
-            <ClientWrapper />
-          </ReactQueryProvider>
-        </ErrorBoundary>
+        {/* React Query Provider */}
+        <ReactQueryProvider>
+          {/* Optimized component loading */}
+          <Nav services={services} trainingCategories={trainingCategories} />
+          {children}
+          <Footer />
+          <ClientWrapper />
+        </ReactQueryProvider>
       </body>
     </html>
   );

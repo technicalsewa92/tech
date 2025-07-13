@@ -2,7 +2,7 @@
 import { baseUrl } from '@/public/baseUrl';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Star } from 'lucide-react';
+import { IoMdStar } from 'react-icons/io';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
 
@@ -73,7 +73,7 @@ export default function ServiceReviews({ productId }: { productId: number }) {
                 <div className="flex gap-1">
                   {[...Array(parseInt(review.rating))].map((e, i) => {
                     return (
-                      <Star key={i} className="text-yellow-500 text-base" />
+                      <IoMdStar key={i} className="text-yellow-500 text-base" />
                     );
                   })}
                 </div>

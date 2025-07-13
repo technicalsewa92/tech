@@ -11,7 +11,9 @@ import Paper from '@mui/material/Paper';
 import { Complain } from './types';
 import { TablePagination } from '@mui/material';
 import { useRouter } from 'next/navigation';
-import { Phone, Package } from 'lucide-react';
+import { MdOutlinePhone } from 'react-icons/md';
+import { TbBrandAnsible } from 'react-icons/tb';
+import { FaProductHunt } from 'react-icons/fa6';
 
 export default function TabularComplains({
   loading,

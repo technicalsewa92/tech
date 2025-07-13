@@ -7,7 +7,7 @@ import OrderTracking from '@/features/dashboard/OrderTraking';
 import TopContainers from '@/features/dashboard/TopContainers';
 import useAuthStore from '@/store/useAuthStore';
 import { api } from '@/lib/api';
-import { Menu } from 'lucide-react';
+import { IoMenu } from 'react-icons/io5';
 import SideNav from '@/features/dashboard/SideNavBar';
 import { useRouter } from 'next/navigation';
 
@@ -25,7 +25,7 @@ export default function Component() {
         try {
           const parsedData = JSON.parse(storedData);
           // setData(parsedData)
-          console.log('Parsed data', parsedData);
+          // console.log('Parsed data', parsedData);
           if (parsedData.dealer == '1') {
             setUserType('Dealer');
           } else {
@@ -39,7 +39,7 @@ export default function Component() {
         router.push('/login');
       }
     }
-  }, []);
+  }, [router]);
 
   const [data, setData] = useState<any>([]);
 
@@ -103,7 +103,7 @@ export default function Component() {
     const delivered = statusCounts.delivered || {};
     const cancelled = statusCounts.cancelled || {};
 
-    console.log(statusLengths);
+    // console.log(statusLengths);
 
     setCounters({
       pending: { data: pending, length: statusLengths.pending },
@@ -165,7 +165,7 @@ export default function Component() {
 
       <main className="overflow-y-scroll w-full md:pb-0 pb-20">
         <div className="flex w-full px-5 py-3 justify-between items-center">
-          <Menu className="text-2xl md:hidden" onClick={toggleSidebar} />
+          <IoMenu className="text-2xl md:hidden" onClick={toggleSidebar} />
           <h1 className="text-xl font-semibold text-gray-800">My Dashboard</h1>
           <div className="px-5 py-2 rounded-md bg-primary text-white items-center justify-center">
             {userType}
@@ -189,7 +189,7 @@ function CurvedlineChart({
   counters: any;
   [key: string]: any;
 }) {
-  console.log(counters, 'COUNTERS');
+  // console.log(counters, 'COUNTERS');
 
   return (
     <div {...props}>

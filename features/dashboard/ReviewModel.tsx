@@ -12,7 +12,7 @@ import {
   FormControl,
   Rating,
 } from '@mui/material';
-import { Star } from 'lucide-react';
+import { IoMdStar } from 'react-icons/io';
 import { api } from '@/lib/api';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
@@ -81,7 +81,7 @@ function ReviewDialog({
           {[...Array(5)].map((_, index) => {
             const currentRating = index + 1;
             return (
-              <Star
+              <IoMdStar
                 key={index}
                 className={`cursor-pointer text-2xl ${
                   currentRating <= (hoverRating || rating)

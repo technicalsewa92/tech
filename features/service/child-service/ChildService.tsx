@@ -5,9 +5,9 @@ import useComplainFormStore from '@/store/useComplainInquiryStore';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { useMemo, useState, useEffect } from 'react';
-import { Star } from 'lucide-react';
-import { Phone } from 'lucide-react';
-import { ArrowRight } from 'lucide-react';
+import { AiFillStar } from 'react-icons/ai';
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import { SlArrowRight } from 'react-icons/sl';
 import Faqlist from '../Faqlist';
 import { createSanitizedHtml } from '../../../utils/htmlSanitizer';
 
@@ -205,7 +205,7 @@ const ChildService = ({ data }: any) => {
                       <div className="flex flex-col md:flex-row gap-4 mt-6">
                         <div className="child-service-rating">
                           <div className="child-service-stars">
-                            <Star />
+                            <AiFillStar />
                             <span className="font-semibold">4.65</span>
                             <span className="child-service-rating-text">
                               out of 5
@@ -216,7 +216,7 @@ const ChildService = ({ data }: any) => {
                           href="tel:9851201580"
                           className="contact-button contact-button-secondary flex items-center justify-center gap-2 w-fit"
                         >
-                          <Phone size={16} />
+                          <BsFillTelephoneFill size={16} />
                           9851201580
                         </a>
                       </div>
@@ -283,7 +283,7 @@ const ChildService = ({ data }: any) => {
                                 className="contact-button contact-button-primary flex items-center justify-between"
                               >
                                 <span>{val.text}</span>
-                                <ArrowRight />
+                                <SlArrowRight />
                               </button>
                             ))}
                           </div>

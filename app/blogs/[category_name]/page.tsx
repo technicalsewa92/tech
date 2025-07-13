@@ -9,7 +9,9 @@ import {
 } from '@/lib/api';
 import Image from 'next/image';
 import React from 'react';
-import { Shield, Droplets, Phone } from 'lucide-react';
+import { GiGloves } from 'react-icons/gi';
+import { ImPhone } from 'react-icons/im';
+import { MdMasks, MdSanitizer } from 'react-icons/md';
 import { URLSearchParams } from 'url';
 
 const BlogsByCategoriesPage = async ({ params }: any) => {

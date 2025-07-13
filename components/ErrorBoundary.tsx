@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { logger } from '@/lib/logger';
 
 interface ErrorBoundaryState {
   hasError: boolean;
@@ -28,7 +27,8 @@ export class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    logger.error('ErrorBoundary caught an error:', error, errorInfo);
+    // Use console.error instead of logger to avoid dependency issues
+    console.error('ErrorBoundary caught an error:', error, errorInfo);
     this.props.onError?.(error, errorInfo);
   }
 
@@ -103,6 +103,6 @@ function DefaultErrorFallback({
 // Hook for functional components
 export function useErrorHandler() {
   return (error: Error, errorInfo?: React.ErrorInfo) => {
-    logger.error('Component error:', error, errorInfo);
+    console.error('Component error:', error, errorInfo);
   };
 }

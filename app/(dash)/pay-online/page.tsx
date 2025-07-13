@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Clock } from 'lucide-react';
+import { AiOutlineClockCircle } from 'react-icons/ai';
 import qr from '../../../public/siddhartha.jpg';
 import Image from 'next/image';
 const PaymentPage = () => {
@@ -27,7 +27,7 @@ const PaymentPage = () => {
         <Image src={qr} alt="QR code for payment" width={300} height={300} />
         <h2 className="text-xl font-semibold mt-4">Scan to Pay</h2>
         <div className="flex items-center mt-4 text-red-500">
-          <Clock className="text-2xl mr-2" />
+          <AiOutlineClockCircle className="text-2xl mr-2" />
           <span className="text-xl font-semibold">{formatTime(timeLeft)}</span>
         </div>
         <p className="text-gray-500 mt-2">

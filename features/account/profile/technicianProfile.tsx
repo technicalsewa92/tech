@@ -1,7 +1,7 @@
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
 import React, { useEffect, useState } from 'react';
 import Storelocation from './userLocation';
-import { Star } from 'lucide-react';
+import { IoMdStar } from 'react-icons/io';
 import { api } from '@/lib/api';
 import useAuthStore from '@/store/useAuthStore';
 import axios from 'axios';
@@ -198,7 +198,7 @@ export default function TechnicianProfile({ profile }: { profile: any }) {
                       <div className="flex gap-1">
                         {[...Array(e.rating)].map((e, i) => {
                           return (
-                            <Star
+                            <IoMdStar
                               key={i}
                               className="text-yellow-500 text-base"
                             />

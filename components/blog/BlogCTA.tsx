@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Phone, ArrowRight } from 'lucide-react';
+import { FiPhoneCall, FiArrowRight } from 'react-icons/fi';
 
 interface BlogCTAProps {
   title?: string;
@@ -33,7 +33,7 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
           href={buttonLink}
           className="inline-flex items-center gap-2 bg-[#2591b2] text-white px-4 py-2 rounded-md hover:bg-[#1a7a96] transition-colors"
         >
-          {buttonText} <ArrowRight />
+          {buttonText} <FiArrowRight />
         </Link>
 
         {phoneNumber && (
@@ -41,7 +41,7 @@ const BlogCTA: React.FC<BlogCTAProps> = ({
             href={`tel:${phoneNumber}`}
             className="inline-flex items-center gap-2 bg-white text-[#2591b2] border border-[#2591b2]/30 px-4 py-2 rounded-md hover:bg-[#2591b2]/5 transition-colors"
           >
-            <Phone /> Call {phoneNumber}
+            <FiPhoneCall /> Call {phoneNumber}
           </a>
         )}
       </div>

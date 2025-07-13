@@ -1,10 +1,63 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 const CountUp = dynamic(() => import('react-countup'), { ssr: false });
 
 const NumberUI = ({ numbers }: any) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Show loading state on server-side to prevent hydration mismatch
+  if (!isClient) {
+    return (
+      <section className="relative bg-gradient-to-r from-[#2591b2]/10 to-[#2591b2]/5 overflow-hidden">
+        <div className="relative w-full bg-white">
+          <div className="max-w-[1280px] mx-auto w-full px-[20px] md:px-[20px] pt-[20px] pb-[20px]">
+            <div className="text-center mb-16">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="h-0.5 w-8 bg-brand-primary rounded-full"></div>
+                <span className="text-brand-primary font-medium text-sm tracking-wide uppercase">
+                  Our Impact
+                </span>
+                <div className="h-0.5 w-8 bg-brand-primary rounded-full"></div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
+                Trusted by Thousands Across Nepal
+              </h2>
+              <p className="text-brand-primary max-w-2xl mx-auto opacity-80">
+                Join our growing community of satisfied customers who trust us
+                with their appliance repair needs.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-brand-primary">
+              {Array.from({ length: 4 }, (_, i) => (
+                <div key={i} className="group text-center">
+                  <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 border border-brand-primary/20">
+                    <div className="relative">
+                      <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary">
+                        <div className="h-16 bg-gray-200 rounded animate-pulse"></div>
+                      </div>
+                      <h3 className="text-lg md:text-xl font-bold text-brand-primary">
+                        <div className="h-6 bg-gray-200 rounded animate-pulse"></div>
+                      </h3>
+                      <p className="text-brand-primary-light text-sm mt-2">
+                        <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative bg-gradient-to-r from-[#2591b2]/10 to-[#2591b2]/5 overflow-hidden">
       {/* Hero-style decorative SVG blobs */}
@@ -57,12 +110,12 @@ const NumberUI = ({ numbers }: any) => {
           </div>
 
           {/* Enhanced Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-brand-primary">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-brand-primary items-stretch">
             {/* Service Requests */}
-            <div className="group text-center">
-              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+            <div className="group text-center h-full">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-4 md:p-8 h-full min-h-[150px] flex flex-col justify-center hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
                 <div className="relative">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-2 md:mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
                     <CountUp
                       end={numbers?.complains || 500}
                       duration={2}
@@ -70,20 +123,20 @@ const NumberUI = ({ numbers }: any) => {
                     />
                     <span className="text-brand-primary">+</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
                     Service Requests
                   </h3>
-                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                  <p className="text-brand-primary-light text-xs md:text-sm mt-1 md:mt-2 group-hover:text-brand-primary transition-colors duration-300">
                     Successfully completed
                   </p>
                 </div>
               </div>
             </div>
             {/* Happy Customers */}
-            <div className="group text-center">
-              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+            <div className="group text-center h-full">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-4 md:p-8 h-full min-h-[150px] flex flex-col justify-center hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
                 <div className="relative">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-2 md:mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
                     <CountUp
                       end={numbers?.customers || 1000}
                       duration={2.2}
@@ -91,20 +144,20 @@ const NumberUI = ({ numbers }: any) => {
                     />
                     <span className="text-brand-primary">+</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
                     Happy Customers
                   </h3>
-                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                  <p className="text-brand-primary-light text-xs md:text-sm mt-1 md:mt-2 group-hover:text-brand-primary transition-colors duration-300">
                     Nationwide satisfaction
                   </p>
                 </div>
               </div>
             </div>
             {/* Expert Technicians */}
-            <div className="group text-center">
-              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+            <div className="group text-center h-full">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-4 md:p-8 h-full min-h-[150px] flex flex-col justify-center hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
                 <div className="relative">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-2 md:mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
                     <CountUp
                       end={numbers?.technicians || 50}
                       duration={1.8}
@@ -112,27 +165,27 @@ const NumberUI = ({ numbers }: any) => {
                     />
                     <span className="text-brand-primary">+</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
                     Expert Technicians
                   </h3>
-                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                  <p className="text-brand-primary-light text-xs md:text-sm mt-1 md:mt-2 group-hover:text-brand-primary transition-colors duration-300">
                     Certified professionals
                   </p>
                 </div>
               </div>
             </div>
             {/* Service Areas */}
-            <div className="group text-center">
-              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
+            <div className="group text-center h-full">
+              <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-4 md:p-8 h-full min-h-[150px] flex flex-col justify-center hover:bg-white/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-brand-primary/20 hover:border-brand-primary overflow-hidden">
                 <div className="relative">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-2 md:mb-4 text-brand-primary group-hover:scale-110 transition-transform duration-300">
                     <CountUp end={15} duration={1.5} enableScrollSpy />
                     <span className="text-brand-primary">+</span>
                   </div>
-                  <h3 className="text-lg md:text-xl font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
+                  <h3 className="text-base md:text-lg font-bold text-brand-primary group-hover:text-brand-primary-dark transition-colors duration-300">
                     Service Areas
                   </h3>
-                  <p className="text-brand-primary-light text-sm mt-2 group-hover:text-brand-primary transition-colors duration-300">
+                  <p className="text-brand-primary-light text-xs md:text-sm mt-1 md:mt-2 group-hover:text-brand-primary transition-colors duration-300">
                     Cities covered
                   </p>
                 </div>

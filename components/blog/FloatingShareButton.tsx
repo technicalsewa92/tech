@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, Mail } from 'lucide-react';
 import {
   FiShare2,
+  FiX,
   FiFacebook,
   FiTwitter,
   FiLinkedin,
+  FiMail,
   FiLink,
 } from 'react-icons/fi';
 
@@ -78,7 +79,7 @@ const FloatingShareButton: React.FC<FloatingShareButtonProps> = ({
     },
     {
       name: 'Email',
-      icon: <Mail />,
+      icon: <FiMail />,
       url: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
       color: 'bg-[#ea4335] hover:bg-[#d62516]',
     },
@@ -120,7 +121,7 @@ const FloatingShareButton: React.FC<FloatingShareButtonProps> = ({
         aria-label={isOpen ? 'Close share menu' : 'Share this article'}
         title={isOpen ? 'Close share menu' : 'Share this article'}
       >
-        {isOpen ? <X size={20} /> : <FiShare2 size={20} />}
+        {isOpen ? <FiX size={20} /> : <FiShare2 size={20} />}
       </button>
     </div>
   );

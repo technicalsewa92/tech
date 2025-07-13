@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ImageWithFallback } from '@/components/ui';
-import { X } from 'lucide-react';
-import { Star } from 'lucide-react';
+import { RxCross2 } from 'react-icons/rx';
+import { IoMdStar } from 'react-icons/io';
 import StoreLocation from '@/features/account/profile/userLocation';
 import { api } from '@/lib/api';
 import useAuthStore from '@/store/useAuthStore';
@@ -44,29 +44,29 @@ const ProfessionalsCardModal = ({
   }, []);
   const [data, setData] = useState<ReviewList | undefined>(undefined);
 
-  const getComplainsData = async () => {
-    try {
-      // console.log(user?.type)
-      const fdata = new FormData();
-
-      fdata.append('id', id);
-      fdata.append('type', 'Technician');
-
-      const { data } = await api.post(
-        '/techsewa/publiccontrol/publicComplain/getRatingDetails',
-        fdata
-      );
-      // console.log(data)
-      setData(data);
-    } catch (error) {
-      // console.log(error)
-    }
-    // console.log("data", data);
-  };
-
   useEffect(() => {
+    const getComplainsData = async () => {
+      try {
+        // console.log(user?.type)
+        const fdata = new FormData();
+
+        fdata.append('id', id);
+        fdata.append('type', 'Technician');
+
+        const { data } = await api.post(
+          '/techsewa/publiccontrol/publicComplain/getRatingDetails',
+          fdata
+        );
+        // console.log(data)
+        setData(data);
+      } catch (error) {
+        // console.log(error)
+      }
+      // console.log("data", data);
+    };
+
     getComplainsData();
-  }, [user, getComplainsData]);
+  }, [user, id]);
   // console.log(skills)
   return (
     <div>
@@ -157,7 +157,7 @@ const ProfessionalsCardModal = ({
                             <div className="flex gap-1">
                               {[...Array(parseInt(e.rating))].map((e, i) => {
                                 return (
-                                  <Star
+                                  <IoMdStar
                                     key={i}
                                     className="text-yellow-500 text-base"
                                   />
@@ -181,7 +181,7 @@ const ProfessionalsCardModal = ({
             )}
           </div>
 
-          <X
+          <RxCross2
             size={16}
             className="text-[#8C8C8C]"
             onClick={() => myDialog?.current?.close()}

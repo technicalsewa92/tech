@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { List } from 'lucide-react';
+import { FiList } from 'react-icons/fi';
 import { Link as ScrollLink } from 'react-scroll';
 
 interface TOCItem {
@@ -31,7 +31,7 @@ const EnhancedTableOfContents: React.FC<TableOfContentsProps> = ({
       setTimeout(() => {
         const contentElement = document.querySelector(contentSelector);
         if (!contentElement) {
-          console.log('Content element not found:', contentSelector);
+          // console.log('Content element not found:', contentSelector);
           return;
         }
 
@@ -41,7 +41,7 @@ const EnhancedTableOfContents: React.FC<TableOfContentsProps> = ({
         );
 
         if (headings.length === 0) {
-          console.log('No headings found in content');
+          // console.log('No headings found in content');
           return;
         }
 
@@ -111,7 +111,7 @@ const EnhancedTableOfContents: React.FC<TableOfContentsProps> = ({
         onClick={() => setIsOpen(!isOpen)}
       >
         <h3 className="font-semibold text-blue-800 flex items-center">
-          <List className="mr-2" /> Table of Contents
+          <FiList className="mr-2" /> Table of Contents
         </h3>
         <span className="text-blue-500">{isOpen ? '−' : '+'}</span>
       </div>

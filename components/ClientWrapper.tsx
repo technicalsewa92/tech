@@ -1,12 +1,23 @@
-"use client";
+'use client';
 
-import dynamic from "next/dynamic";
-
-const LazyClientRenderer = dynamic(
-  () => import("@/features/lazyClientRenderer"),
-  { ssr: false }
-);
+import React, { useEffect, useState } from 'react';
+import PopupBanner from './pop-up/PopUp';
 
 export default function ClientWrapper() {
-  return <LazyClientRenderer />;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Only render client-side components after hydration
+  if (!isClient) {
+    return null;
+  }
+
+  return (
+    <>
+      <PopupBanner />
+    </>
+  );
 }

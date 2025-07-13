@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
-import { Eye } from 'lucide-react';
-import { EyeOff } from 'lucide-react';
-import { Facebook } from 'lucide-react';
-import { Chrome } from 'lucide-react';
+import { AiOutlineEye } from 'react-icons/ai';
+import { BsEyeSlashFill } from 'react-icons/bs';
+import { FaFacebook } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
 
 const LoginForm1 = ({ cb }: { cb?: () => void }) => {
@@ -129,7 +129,7 @@ const LoginForm1 = ({ cb }: { cb?: () => void }) => {
             className=" border-l-[1px] p-4"
             onClick={() => setshowPassword(!showPassword)}
           >
-            {showPassword ? <Eye /> : <EyeOff />}
+            {showPassword ? <AiOutlineEye /> : <BsEyeSlashFill />}
           </div>
         </div>
         <Link
@@ -162,8 +162,8 @@ const LoginForm1 = ({ cb }: { cb?: () => void }) => {
         <div className="text-center">or</div>
 
         <div className="flex items-center justify-center mt-5 mb-[10px] space-x-1 gap-4">
-          <Chrome size={30} className="text-[#34A853] cursor-pointer" />
-          <Facebook size={30} className="text-[#1877F2] cursor-pointer" />
+          <FcGoogle size={30} className="text-[#34A853] cursor-pointer" />
+          <FaFacebook size={30} className="text-[#1877F2] cursor-pointer" />
         </div>
       </div>
     </div>

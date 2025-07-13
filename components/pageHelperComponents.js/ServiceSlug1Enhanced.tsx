@@ -7,18 +7,19 @@ import { baseUrl } from '@/public/baseUrl';
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
-import {
-  Star,
-  Phone,
-  MessageCircle,
-  ArrowRight,
-  Clock,
-  MapPin,
-  Shield,
-  Mail,
-  CheckCircle,
-} from 'lucide-react';
+import { AiFillStar, AiOutlinePhone, AiOutlineWhatsApp } from 'react-icons/ai';
 import { createSanitizedHtml } from '../../utils/htmlSanitizer';
+import { BsFillTelephoneFill, BsCheckCircleFill } from 'react-icons/bs';
+import { SlArrowRight } from 'react-icons/sl';
+import {
+  FiClock,
+  FiMapPin,
+  FiShield,
+  FiTool,
+  FiPhone,
+  FiMail,
+} from 'react-icons/fi';
+import { MdVerified } from 'react-icons/md';
 import ImageWithFallback from '@/components/ui/ImageWithFallback';
 import Link from 'next/link';
 import GetFreeQuoteSidebar from '../GetFreeQuoteSidebar';
@@ -104,18 +105,18 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                 >
                   Home
                 </Link>
-                <ArrowRight className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
+                <SlArrowRight className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
                 <Link
                   href="/service"
                   className="hover:text-white transition-colors whitespace-nowrap flex-shrink-0"
                 >
                   Services
                 </Link>
-                <ArrowRight className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
+                <SlArrowRight className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
                 <span className="hover:text-white transition-colors cursor-pointer whitespace-nowrap flex-shrink-0 max-w-16 sm:max-w-none truncate">
                   {serviceData?.brand_name?.toLowerCase()}
                 </span>
-                <ArrowRight className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
+                <SlArrowRight className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
                 <span className="text-white font-medium whitespace-nowrap flex-shrink-0 max-w-20 sm:max-w-none truncate">
                   {serviceData?.product_name?.toLowerCase()}
                 </span>
@@ -137,7 +138,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
               {/* Rating and Contact */}
               <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
                 <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1.5 sm:py-2">
-                  <Star className="text-yellow-400 w-3 h-3 sm:w-4 sm:h-4 fill-current" />
+                  <AiFillStar className="text-yellow-400 w-3 h-3 sm:w-4 sm:h-4" />
                   <span className="ml-1 font-semibold text-xs sm:text-sm">
                     4.65
                   </span>
@@ -159,7 +160,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                   href="https://wa.me/9779851201580"
                   className="flex items-center justify-center gap-2 bg-green-600 text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-green-700 transition-colors text-xs sm:text-sm flex-1 sm:flex-initial mobile-button mobile-touch-response"
                 >
-                  <MessageCircle className="w-7 h-7 flex-shrink-0" />
+                  <AiOutlineWhatsApp className="w-7 h-7 flex-shrink-0" />
                   <span className="truncate mobile-text">WhatsApp</span>
                 </a>
 
@@ -167,7 +168,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                   href="tel:9851201580"
                   className="flex items-center justify-center gap-2 bg-white text-blue-900 px-3 sm:px-4 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors text-xs sm:text-sm flex-1 sm:flex-initial mobile-button mobile-touch-response"
                 >
-                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <AiOutlinePhone className="w-4 h-4 flex-shrink-0" />
                   <span className="hidden sm:inline">Call:</span>
                   <span className="truncate mobile-text">9851201580</span>
                 </a>
@@ -176,7 +177,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                   onClick={() => setShowInquiryForm(true)}
                   className="flex items-center justify-center gap-2 bg-purple-600 text-white px-3 sm:px-4 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors text-xs sm:text-sm flex-1 sm:flex-initial mobile-button mobile-touch-response"
                 >
-                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <FiMail className="w-4 h-4 flex-shrink-0" />
                   <span className="truncate mobile-text">Get Quote</span>
                 </button>
               </div>
@@ -184,21 +185,21 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
               {/* Service Features */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 lg:gap-4 pt-2 sm:pt-4">
                 <div className="flex items-center gap-1 text-blue-200 min-w-0">
-                  <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <FiClock className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
                   <span className="text-xs sm:text-sm truncate">
                     24/7 Service
                   </span>
                 </div>
                 <div className="flex items-center gap-1 text-blue-200 min-w-0">
-                  <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <FiShield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
                   <span className="text-xs sm:text-sm truncate">Warranty</span>
                 </div>
                 <div className="flex items-center gap-1 text-blue-200 min-w-0">
-                  <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <MdVerified className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
                   <span className="text-xs sm:text-sm truncate">Certified</span>
                 </div>
                 <div className="flex items-center gap-1 text-blue-200 min-w-0">
-                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
+                  <FiMapPin className="w-3 h-3 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
                   <span className="text-xs sm:text-sm truncate">On-site</span>
                 </div>
               </div>
@@ -233,9 +234,9 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
             <div className="bg-white rounded-lg sm:rounded-xl shadow-sm border border-gray-200 overflow-hidden">
               <div className="flex border-b border-gray-200 overflow-x-auto scrollbar-hide">
                 {[
-                  { id: 'overview', label: 'Overview', icon: Shield },
-                  { id: 'details', label: 'Details', icon: CheckCircle },
-                  { id: 'pricing', label: 'Pricing', icon: Phone },
+                  { id: 'overview', label: 'Overview', icon: FiTool },
+                  { id: 'details', label: 'Details', icon: BsCheckCircleFill },
+                  { id: 'pricing', label: 'Pricing', icon: FiPhone },
                 ].map(tab => (
                   <button
                     key={tab.id}
@@ -276,25 +277,25 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                         </h3>
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2 min-w-0">
-                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                            <BsCheckCircleFill className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Professional diagnosis
                             </span>
                           </li>
                           <li className="flex items-center gap-2 min-w-0">
-                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                            <BsCheckCircleFill className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Quality parts & tools
                             </span>
                           </li>
                           <li className="flex items-center gap-2 min-w-0">
-                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                            <BsCheckCircleFill className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Service warranty
                             </span>
                           </li>
                           <li className="flex items-center gap-2 min-w-0">
-                            <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+                            <BsCheckCircleFill className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Follow-up support
                             </span>
@@ -307,19 +308,19 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                         </h3>
                         <ul className="space-y-2">
                           <li className="flex items-center gap-2 min-w-0">
-                            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
+                            <FiMapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Kathmandu Valley
                             </span>
                           </li>
                           <li className="flex items-center gap-2 min-w-0">
-                            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
+                            <FiMapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Pokhara
                             </span>
                           </li>
                           <li className="flex items-center gap-2 min-w-0">
-                            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
+                            <FiMapPin className="w-3 h-3 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
                             <span className="text-gray-600 text-sm sm:text-base break-words">
                               Chitwan
                             </span>
@@ -401,7 +402,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                     </div>
                     <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
                       <p className="text-xs sm:text-sm text-yellow-800 break-words">
-                        <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-600 inline mr-2 flex-shrink-0" />
+                        <BsCheckCircleFill className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-600 inline mr-2 flex-shrink-0" />
                         Final pricing depends on the specific issue and parts
                         required. Get a free quote by contacting us!
                       </p>
@@ -445,14 +446,14 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                         <span className="font-medium text-gray-800 group-hover:text-blue-600 text-sm sm:text-base break-words pr-2">
                           {val.text}
                         </span>
-                        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0" />
+                        <SlArrowRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0" />
                       </Link>
                     ))}
                   </div>
                 ) : (
                   <div className="text-center py-6 sm:py-8">
                     <div className="text-gray-400 mb-2">
-                      <Shield className="w-6 h-6 sm:w-8 sm:h-8 mx-auto" />
+                      <FiTool className="w-6 h-6 sm:w-8 sm:h-8 mx-auto" />
                     </div>
                     <p className="text-gray-500 text-sm break-words">
                       No service categories available
@@ -485,7 +486,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                   className="flex items-center gap-3 p-3 sm:p-4 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors group min-w-0"
                 >
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center group-hover:bg-blue-700 transition-colors flex-shrink-0">
-                    <Phone className="w-6 h-6 sm:w-8 sm:h-8" />
+                    <BsFillTelephoneFill className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   <div className="min-w-0">
                     <p className="font-semibold text-gray-800 text-sm sm:text-base">
@@ -502,7 +503,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
                   className="flex items-center gap-3 p-3 sm:p-4 bg-green-50 hover:bg-green-100 rounded-lg transition-colors group min-w-0"
                 >
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-600 text-white rounded-full flex items-center justify-center group-hover:bg-green-700 transition-colors flex-shrink-0">
-                    <MessageCircle className="w-7 h-7 sm:w-9 sm:h-9" />
+                    <AiOutlineWhatsApp className="w-7 h-7 sm:w-9 sm:h-9" />
                   </div>
                   <div className="min-w-0">
                     <p className="font-semibold text-gray-800 text-sm sm:text-base">
@@ -702,7 +703,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
             className="w-12 h-12 sm:w-14 sm:h-14 bg-green-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition-all hover:scale-110 active:scale-95"
             title="WhatsApp Us"
           >
-            <MessageCircle className="w-8 h-8 sm:w-10 sm:h-10" />
+            <AiOutlineWhatsApp className="w-8 h-8 sm:w-10 sm:h-10" />
           </a>
           <a
             href="tel:9851201580"
@@ -721,7 +722,7 @@ const ServiceSlug1Enhanced = ({ data }: any) => {
         className="fixed bottom-0 left-0 right-0 z-50 w-full bg-blue-600 text-white flex items-center justify-center gap-2 py-3 font-bold text-lg shadow-lg md:hidden"
         style={{ borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem' }}
       >
-        <Phone className="w-6 h-6" />
+        <AiOutlinePhone className="w-6 h-6" />
         Call Now: 9851201580
       </a>
     </div>
