@@ -82,5 +82,15 @@ export const metadata = {
     description: staticHomeSeo.twitter_desc,
     images: [staticHomeSeo.twitter_image],
   },
-  robots: staticHomeSeo.robots,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
