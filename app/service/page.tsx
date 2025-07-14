@@ -1,6 +1,3 @@
-import '@/styles/service-pages.css';
-import Nav from '@/components/Nav';
-import Footer from '@/components/footer/Footer';
 import Service from '@/components/pageHelperComponents.js/Service';
 import { fetchServerClient } from '@/lib/api';
 import React from 'react';
@@ -43,11 +40,7 @@ const page = async () => {
     // data already has fallback (empty array)
   }
 
-  return (
-    <>
-      <Service services={servicesData?.brands} data={data} />
-    </>
-  );
+  return <Service services={servicesData?.brands} data={data} />;
 };
 
 export default page;

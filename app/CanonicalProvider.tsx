@@ -1,21 +1,12 @@
-"use client";
+'use client';
 
-import { usePathname } from "next/navigation";
-import Head from "next/head";
+import { usePathname } from 'next/navigation';
 
 const CanonicalProvider = () => {
   const pathname = usePathname();
-  console.log("pathname",pathname)
   const canonicalUrl = `https://www.technicalsewa.com${pathname}`;
 
-  return (
-    <>
-      {/* <Head> */}
-        <link rel="canonical" href={canonicalUrl} />
-      {/* </Head> */}
-
-    </>
-  );
+  return <link rel="canonical" href={canonicalUrl} />;
 };
 
 export default CanonicalProvider;

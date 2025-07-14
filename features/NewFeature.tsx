@@ -3,7 +3,6 @@ import { fetchServerClient } from '@/lib/api';
 import HeroSection from '@/components/HeroSection';
 import Categories from '@/components/repair/Categories';
 import ServicesSLiders from './home/servicesSliders';
-import WhyChooseUs from '@/components/WhyChooseUs';
 import dynamic from 'next/dynamic';
 
 // Loading component - defined before dynamic imports
@@ -28,57 +27,6 @@ const SafeComponentWrapper = ({
     return <div>{fallback}</div>;
   }
 };
-
-// Fallback component for WhyChooseUs
-const WhyChooseUsFallback = () => (
-  <section className="bg-white py-16">
-    <div className="max-w-7xl mx-auto px-4">
-      <div className="text-center mb-10">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="h-0.5 w-8 bg-primary rounded-full"></div>
-          <span className="text-primary font-medium text-sm uppercase tracking-wide">
-            Why Choose Us
-          </span>
-          <div className="h-0.5 w-8 bg-primary rounded-full"></div>
-        </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-primary text-center mb-8">
-          Trusted by Thousands Across Nepal, Because We Care About Your Safety
-        </h2>
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-          Your trust is our priority. We follow strict safety protocols and
-          deliver exceptional service quality.
-        </p>
-      </div>
-      <div className="flex flex-col md:flex-row gap-8 items-stretch justify-center">
-        <div className="flex-1 max-w-lg mx-auto md:mx-0">
-          <div className="bg-gray-50 rounded-xl shadow p-8 border border-gray-100">
-            <h3 className="text-xl font-bold text-primary mb-4 text-center">
-              Get a Free Quote
-            </h3>
-            <div className="space-y-4">
-              <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
-              <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
-              <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
-              <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
-            </div>
-          </div>
-        </div>
-        <div className="flex-1 grid grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto md:mx-0">
-          {Array.from({ length: 4 }, (_, i) => (
-            <div
-              key={i}
-              className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 text-center"
-            >
-              <div className="w-12 h-12 bg-gray-200 rounded-lg mx-auto mb-3 animate-pulse"></div>
-              <div className="h-5 bg-gray-200 rounded animate-pulse mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 // Dynamic imports with proper error handling
 const Number = dynamic(() => import('@/components/Number'), {
@@ -417,7 +365,55 @@ export default async function NewFeature() {
       </SafeComponentWrapper>
 
       {/* Why Choose Us */}
-      <WhyChooseUs />
+      {/*
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="h-0.5 w-8 bg-primary rounded-full"></div>
+              <span className="text-primary font-medium text-sm uppercase tracking-wide">
+                Why Choose Us
+              </span>
+              <div className="h-0.5 w-8 bg-primary rounded-full"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primary text-center mb-8">
+              Trusted by Thousands Across Nepal, Because We Care About Your Safety
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+              Your trust is our priority. We follow strict safety protocols and
+              deliver exceptional service quality.
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-8 items-stretch justify-center">
+            <div className="flex-1 max-w-lg mx-auto md:mx-0">
+              <div className="bg-gray-50 rounded-xl shadow p-8 border border-gray-100">
+                <h3 className="text-xl font-bold text-primary mb-4 text-center">
+                  Get a Free Quote
+                </h3>
+                <div className="space-y-4">
+                  <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 grid grid-cols-2 gap-4 md:gap-6 max-w-2xl mx-auto md:mx-0">
+              {Array.from({ length: 4 }, (_, i) => (
+                <div
+                  key={i}
+                  className="bg-white p-5 rounded-lg shadow-sm border border-gray-200 text-center"
+                >
+                  <div className="w-12 h-12 bg-gray-200 rounded-lg mx-auto mb-3 animate-pulse"></div>
+                  <div className="h-5 bg-gray-200 rounded animate-pulse mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      */}
 
       {/* Google Business Reviews Section */}
       <SafeComponentWrapper fallback={<LoadingSection height="h-96" />}>
