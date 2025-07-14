@@ -7,6 +7,9 @@ body {
   font-family: var(--font-inter, 'Inter', sans-serif);
 }
 
+/* Only keep necessary custom CSS imports below. Remove unused ones for production. */
+/* @import '../styles/blog-enhanced.css'; */
+
 /* The following CSS imports are for development only. These files are generated or merged into the main CSS bundle during production build and should not be tracked or edited manually. Remove them from version control if present: homepage-layout-fixes.css, homepage-enhancements.css, optimizations.css, service-pages.css, mobile-optimizations.css. */
 
 /* :root {
@@ -1392,7 +1395,6 @@ h4 {
 }
 
 /* Blog Enhanced Styles (if not already present) */
-@import '../styles/blog-enhanced.css';
 
 /* Unique rules from main.css (not already in globals.css) */
 .whatsapp_float {
