@@ -35,12 +35,12 @@ const MidContent2 = async () => {
             <div className="flex flex-col md:flex-row gap-8 items-center">
               {/* About Text */}
               <div className="flex-1 mid-content2-content">
-                <h1
+                <h2
                   className="text-2xl md:text-4xl font-extrabold text-white mb-6 text-center md:text-left px-5"
                   style={{ paddingLeft: 20, paddingRight: 20 }}
                 >
                   About Technical Sewa
-                </h1>
+                </h2>
                 <p className="mb-4">
                   <strong>Technical Sewa</strong> is Nepals leading provider of
                   professional repair and maintenance services for home

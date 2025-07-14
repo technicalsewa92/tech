@@ -226,6 +226,21 @@ export const useBlogsByCategory = (categoryId: string | undefined) => {
   });
 };
 
+// React Query hook for homepage SEO
+export const useHomeSeo = () => {
+  return useQuery({
+    queryKey: ['home-seo'],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        'https://crm.technicalsewa.com/techsewa/publiccontrol/publicmasterconfig/getSeoContent',
+        { params: { url: '/' } }
+      );
+      return data;
+    },
+    staleTime: 60 * 1000, // 1 minute
+  });
+};
+
 // ✅ Mutations for data updates
 export const useLoginMutation = () => {
   const queryClient = useQueryClient();
